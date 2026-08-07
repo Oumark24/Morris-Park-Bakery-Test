@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Morris Park Bake Shop | Custom Cakes & Italian Pastries Since 1980</title>
+<style>
+:root{--cream:#fdf8f0;--pastel-pink:#fce4ec;--pastel-mint:#e0f2f1;--pastel-lav:#e8eaf6;--soft-brown:#8d6e63;--dark:#5d4037}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:var(--cream);color:var(--dark);line-height:1.6}
+header{background:linear-gradient(135deg,var(--cream) 0%,var(--pastel-pink) 100%);padding:4rem 2rem;text-align:center}
+header h1{font-size:3rem;margin-bottom:1rem;color:var(--dark);font-weight:400;letter-spacing:.05em}
+header p{font-size:1.2rem;margin-bottom:2rem;color:var(--soft-brown)}
+.btn{display:inline-block;padding:.8rem 2rem;border:none;border-radius:50px;background:var(--pastel-pink);color:var(--dark);text-decoration:none;font-size:1rem;font-weight:600;transition:.3s;cursor:pointer;margin:.5rem}
+.btn:hover{background:var(--pastel-mint);transform:translateY(-2px)}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+section{padding:3rem 0}
+section h2{font-size:2.2rem;margin-bottom:2rem;color:var(--dark);text-align:center;position:relative}
+section h2:after{content:'';display:block;width:80px;height:4px;background:var(--pastel-pink);margin:1rem auto;border-radius:2px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;max-width:800px;margin:0 auto}
+.form-group{display:flex;flex-direction:column}
+.form-group label{margin-bottom:.5rem;font-weight:600;color:var(--soft-brown)}
+.form-group input,.form-group select{padding:.8rem;border:2px solid var(--pastel-lav);border-radius:8px;font-size:1rem;background:white;transition:.3s}
+.form-group input:focus,.form-group select:focus{border-color:var(--pastel-pink);outline:none}
+.file-upload{padding:1.5rem;border:2px dashed var(--pastel-lav);border-radius:8px;text-align:center;cursor:pointer;transition:.3s}
+.file-upload:hover{border-color:var(--pastel-pink);background:var(--pastel-mint)}
+.file-upload input{display:none}
+.gallery-filters{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.gallery-filters button{padding:.5rem 1.2rem;border:none;background:var(--pastel-lav);color:var(--dark);border-radius:50px;cursor:pointer;transition:.3s;font-weight:600}
+.gallery-filters button.active,.gallery-filters button:hover{background:var(--pastel-pink)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+.gallery-item{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:.3s}
+.gallery-item:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.img-placeholder{width:100%;height:220px;background:var(--pastel-lav);display:flex;align-items:center;justify-content:center;color:var(--soft-brown);font-style:italic;text-align:center;padding:1rem;border-bottom:2px dashed var(--pastel-pink)}
+.gallery-item h3{padding:1rem;font-size:1.1rem;color:var(--dark);text-align:center}
+.menu-section{background:var(--pastel-mint);padding:3rem 0}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.menu-card{background:white;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.menu-card h3{margin-bottom:1rem;color:var(--dark);font-size:1.3rem}
+.menu-card ul{list-style:none}.menu-card li{margin-bottom:.5rem;padding:.5rem 0;border-bottom:1px solid var(--pastel-lav)}
+.menu-card li:last-child{border-bottom:none}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;max-width:800px;margin:0 auto}
+.contact-card{background:white;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);text-align:center}
+.contact-card h3{margin-bottom:1rem;color:var(--dark)}
+.contact-card p{margin-bottom:.5rem;color:var(--soft-brown)}
+.call-btn{background:var(--pastel-mint)}
+.map-container{height:300px;border-radius:12px;overflow:hidden;background:var(--pastel-lav)}
+footer{background:var(--soft-brown);color:white;text-align:center;padding:2rem;margin-top:3rem}
+footer p{margin:.5rem 0}
+@media (max-width:768px){header h1{font-size:2rem}header p{font-size:1rem}.form-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<h1>Morris Park Bake Shop</h1>
+<p>Handcrafted Custom Cakes & Classic Italian Pastries Since 1980</p>
+<a href="#form" class="btn">Request Custom Cake Quote</a>
+<a href="#gallery" class="btn">Browse Gallery</a>
+</header>
+
+<main class="container">
+<section id="form">
+<h2>Custom Cake Request</h2>
+<form class="form-grid" id="cakeForm">
+<div class="form-group"><label>Event Type</label>
+<select required><option value="">Select...</option><option>Wedding</option><option>Birthday</option><option>Anniversary</option></select></div>
+<div class="form-group"><label>Cake Size</label>
+<select required><option value="">Select...</option><option>6" (Serves 8-10)</option><option>7" (Serves 12-14)</option><option>8" (Serves 16-18)</option><option>10" (Serves 25-30)</option></select></div>
+<div class="form-group"><label>Flavor Choice</label>
+<select required><option value="">Select...</option><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Tiramisu</option><option>Cannoli</option><option>Strawberry Shortcake</option><option>Carrot</option><option>Oreo</option><option>Funfetti</option></select></div>
+<div class="form-group"><label>Delivery Date</label>
+<input type="date" required></div>
+<div class="form-group"><label>Special Requests</label>
+<textarea rows="3" placeholder="Allergies, design notes, etc."></textarea></div>
+<div class="form-group">
+<label>Upload Inspiration Photo</label>
+<label class="file-upload"><input type="file" accept="image/*">Click to Upload</label>
+</div>
+<button type="submit" class="btn" style="grid-column:1/-1;width:auto">Submit Request</button>
+</form>
+</section>
+
+<section id="gallery">
+<h2>Our Creations</h2>
+<div class="gallery-filters">
+<button class="active" data-filter="all">All</button>
+<button data-filter="cakes">Custom Cakes</button>
+<button data-filter="pastries">Italian Pastries</button>
+<button data-filter="cookies">Cookies</button>
+<button data-filter="bread">Fresh Bread</button>
+</div>
+<div class="gallery">
+<div class="gallery-item" data-category="cakes"><div class="img-placeholder">Photo coming soon<br>(Wedding Cake)</div><h3>Wedding Cake</h3></div>
+<div class="gallery-item" data-category="pastries"><div class="img-placeholder">Photo coming soon<br>(Tiramisu)</div><h3>Tiramisu</h3></div>
+<div class="gallery-item" data-category="cookies"><div class="img-placeholder">Photo coming soon<br>(Assorted Cookies)</div><h3>Assorted Cookies</h3></div>
+<div class="gallery-item" data-category="bread"><div class="img-placeholder">Photo coming soon<br>(Fresh Bread)</div><h3>Fresh Bread</h3></div>
+<div class="gallery-item" data-category="cakes"><div class="img-placeholder">Photo coming soon<br>(Birthday Cake)</div><h3>Birthday Cake</h3></div>
+<div class="gallery-item" data-category="pastries"><div class="img-placeholder">Photo coming soon<br>(Cannoli)</div><h3>Cannoli</h3></div>
+<div class="gallery-item" data-category="cookies"><div class="img-placeholder">Photo coming soon<br>(Chocolate Chip)</div><h3>Chocolate Chip</h3></div>
+<div class="gallery-item" data-category="bread"><div class="img-placeholder">Photo coming soon<br>(Sourdough)</div><h3>Sourdough</h3></div>
+</div>
+</section>
+
+<section class="menu-section">
+<h2>Our Menu</h2>
+<div class="menu-grid">
+<div class="menu-card"><h3>Cookies & Sweet Bites</h3><ul>
+<li><strong>$4.00</strong> Large Cookies: Chocolate Chip, Rainbow Sprinkles, M&M's, Jelly Sandwich, Linzer Tart, Black & White</li>
+<li><strong>$3.00</strong> Donuts, Buns</li>
+<li><strong>$3.50</strong> Muffins, Cupcakes</li>
+<li><strong>$4.00</strong> Turnovers</li>
+<li><strong>$4.50</strong> Brownies</li>
+</ul></div>
+<div class="menu-card"><h3>Individual Pastries & Tarts</h3><ul>
+<li><strong>$8.50</strong> French Napoleon, Tiramisu, Chocolate Mousse, Lobster Tail, Large Cannoli, Eclair, Fruit Tart, French Custard</li>
+</ul></div>
+<div class="menu-card"><h3>Whole Cakes</h3><ul>
+<li><strong>$35.00</strong> 7" Specialty: Carrot, Strawberry Shortcake, Oreo, Funfetti, Mocha, Dulce De Leche, Red Velvet, Chocolate Mousse, Chocolate Fudge, Shadow, Black Forest, Strawberry Banana</li>
+<li><strong>$40.00</strong> 8" Signature: Italian, Tres Leche, Cannoli, Tiramisu, Fruit</li>
+</ul></div>
+<div class="menu-card"><h3>Cheesecakes & Pies</h3><ul>
+<li><strong>$8.00</strong> Slice of Cheesecake</li>
+<li><strong>$15.00</strong> Apple Horn Pie</li>
+<li><strong>$25.00</strong> 7" Plain or Marble Cheesecake</li>
+<li><strong>$30.00</strong> 7" Strawberries, Chocolate Fudge, Funfetti, Oreo, Red Velvet, Mixed Fresh Fruit Cheesecake</li>
+</ul></div>
+</div>
+</section>
+
+<section id="contact">
+<h2>Visit Us</h2>
+<div class="contact-grid">
+<div class="contact-card"><h3>Location</h3><p>1007 Morris Park Ave</p><p>Bronx, NY 10462</p></div>
+<div class="contact-card"><h3>Hours</h3><p>Mon-Fri: 7:00 AM - 7:00 PM</p><p>Sat: 7:00 AM - 6:00 PM</p><p>Sun: 8:00 AM - 4:00 PM</p></div>
+<div class="contact-card"><h3>Contact</h3><p>Phone: 718-892-4968</p><a href="tel:+17188924968" class="btn call-btn">📞 Call Us</a></div>
+<div class="contact-card"><h3>Map</h3>
+<div class="map-container"><iframe src="https://www.google.com/maps?q=1007+Morris+Park+Ave,+Bronx,+NY+10462&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer>
+<p><strong>Morris Park Bake Shop</strong></p>
+<p>Handcrafted with love since 1980</p>
+<p>1007 Morris Park Ave, Bronx, NY 10462 | 718-892-4968</p>
+</footer>
+
+<script>
+document.getElementById('cakeForm').addEventListener('submit',function(e){e.preventDefault();alert('Thank you! We will contact you shortly to confirm your custom cake request.')});
+const filters=document.querySelectorAll('.gallery-filters button');const items=document.querySelectorAll('.gallery-item');
+filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));f.classList.add('active');const filter=f.dataset.filter;items.forEach(i=>{if(filter==='all'||i.dataset.category===filter)i.style.display='block';else i.style.display='none'})}))
+</script>
+</body>
+</html>
