@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Morris Park Bake Shop | Custom Cakes & Italian Pastries Since 1980</title>
 <style>
-:root{--cream:#fdf8f0;--pastel-pink:#fce4ec;--pastel-mint:#e0f2f1;--pastel-lav:#e8eaf6;--soft-brown:#8d6e63;--dark:#5d4037}
+:root{--cream:#fdf8f0;--pastel-pink:#fce4ec;--pastel-mint:#e0f2f1;--pastel-lav:#e8eaf6;--soft-brown:#8d6e63;--dark:#5d4037;--uber-green:#06C167}
 *{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:var(--cream);color:var(--dark);line-height:1.6}
 header{background:linear-gradient(135deg,var(--cream) 0%,var(--pastel-pink) 100%);padding:4rem 2rem;text-align:center}
 header h1{font-size:3rem;margin-bottom:1rem;color:var(--dark);font-weight:400;letter-spacing:.05em}
@@ -44,9 +44,17 @@ section h2:after{content:'';display:block;width:80px;height:4px;background:var(-
 .contact-card p{margin-bottom:.5rem;color:var(--soft-brown)}
 .call-btn{background:var(--pastel-mint)}
 .map-container{height:300px;border-radius:12px;overflow:hidden;background:var(--pastel-lav)}
+.delivery{background:var(--pastel-mint);padding:2.5rem 2rem;text-align:center}
+.delivery h2{font-size:1.8rem;margin-bottom:.5rem}
+.delivery h2:after{display:none}
+.delivery p{color:var(--soft-brown);margin-bottom:1.5rem}
+.btn-uber{background:var(--uber-green);color:#fff;box-shadow:0 4px 12px rgba(6,193,103,.35)}
+.btn-uber:hover{background:#05a659;color:#fff}
+.fab{display:none;position:fixed;right:1.2rem;bottom:1.2rem;z-index:999;align-items:center;gap:.5rem;padding:.9rem 1.3rem;border-radius:50px;background:var(--uber-green);color:#fff;text-decoration:none;font-family:'Georgia',serif;font-weight:600;font-size:1rem;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:.3s}
+.fab:hover,.fab:focus{background:#05a659;box-shadow:0 8px 24px rgba(0,0,0,.35)}
 footer{background:var(--soft-brown);color:white;text-align:center;padding:2rem;margin-top:3rem}
 footer p{margin:.5rem 0}
-@media (max-width:768px){header h1{font-size:2rem}header p{font-size:1rem}.form-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}}
+@media (max-width:768px){header h1{font-size:2rem}header p{font-size:1rem}.form-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.fab{display:inline-flex}body{padding-bottom:4.5rem}}
 </style>
 </head>
 <body>
@@ -56,6 +64,12 @@ footer p{margin:.5rem 0}
 <a href="#form" class="btn">Request Custom Cake Quote</a>
 <a href="#gallery" class="btn">Browse Gallery</a>
 </header>
+
+<section class="delivery">
+<h2>Order Delivery</h2>
+<p>Fresh pastries and cakes delivered straight to your door.</p>
+<a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer" class="btn btn-uber">Order Delivery on Uber Eats</a>
+</section>
 
 <main class="container">
 <section id="form">
@@ -144,6 +158,8 @@ footer p{margin:.5rem 0}
 <p>Handcrafted with love since 1980</p>
 <p>1007 Morris Park Ave, Bronx, NY 10462 | 718-892-4968</p>
 </footer>
+
+<a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer" class="fab" aria-label="Order delivery on Uber Eats">🛵 Order Delivery</a>
 
 <script>
 document.getElementById('cakeForm').addEventListener('submit',function(e){e.preventDefault();alert('Thank you! We will contact you shortly to confirm your custom cake request.')});
