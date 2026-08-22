@@ -17,7 +17,9 @@
   <meta name="twitter:description" content="Open the live menu, call the shop, or get directions to 1007 Morris Park Avenue.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -50,8 +52,8 @@
       --shadow: 0 22px 56px rgba(73,40,27,.13);
       --width: 1180px;
       --header: 78px;
-      --display: "DM Serif Display", Georgia, serif;
-      --body: "Manrope", Arial, sans-serif;
+      --display: "Bodoni Moda", Georgia, serif;
+      --body: "DM Sans", Arial, sans-serif;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header) + 18px); }
@@ -105,9 +107,15 @@
     .mobile-menu__links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.19); font-family: var(--display); font-size: 2.12rem; line-height: 1; }
     .mobile-menu__actions { display: grid; gap: 10px; }
 
-    .hero { position: relative; overflow: hidden; background: var(--cocoa); color: #fff; }
+    .hero { position: relative; overflow: hidden; --parcel-rotation: 0deg; --parcel-shift: 0px; background: linear-gradient(90deg, rgba(74,27,21,.98) 0%, rgba(90,36,28,.9) 46%, rgba(90,36,28,.34) 100%), var(--cocoa); color: #fff; }
     .hero::before { position: absolute; inset: 0; opacity: .38; background-image: linear-gradient(45deg, transparent 48%, rgba(255,255,255,.15) 49% 51%, transparent 52%), linear-gradient(-45deg, transparent 48%, rgba(255,255,255,.15) 49% 51%, transparent 52%); background-size: 30px 30px; mask-image: linear-gradient(90deg,#000,transparent 79%); content: ""; }
-    .hero::after { position: absolute; right: -185px; bottom: -230px; width: min(78vw,780px); height: min(78vw,780px); border: 2px solid rgba(255,255,255,.17); border-radius: 50%; box-shadow: 0 0 0 24px rgba(255,255,255,.035), 0 0 0 49px rgba(255,255,255,.03); content: ""; }
+    .hero::after { position: absolute; right: -185px; bottom: -230px; width: min(78vw,780px); height: min(78vw,780px); transform: rotate(var(--parcel-rotation)); border: 2px solid rgba(255,255,255,.17); border-radius: 50%; box-shadow: 0 0 0 24px rgba(255,255,255,.035), 0 0 0 49px rgba(255,255,255,.03); content: ""; will-change: transform; }
+    .parcel-folds { position: absolute; top: 0; right: max(-100px, -8vw); width: min(50vw, 670px); height: 100%; transform: translateX(var(--parcel-shift)) rotate(var(--parcel-rotation)); transform-origin: 82% 50%; opacity: .96; pointer-events: none; will-change: transform; }
+    .parcel-folds span { position: absolute; display: block; border: 1px solid rgba(255,255,255,.23); background: linear-gradient(135deg, rgba(252,245,231,.92), rgba(168,214,194,.34) 48%, rgba(187,62,50,.52)); box-shadow: inset 0 0 45px rgba(41,28,24,.24), 0 24px 54px rgba(25,9,7,.22); }
+    .parcel-folds span:nth-child(1) { top: 12%; right: 5%; width: 72%; height: 55%; transform: rotate(18deg) skewY(-7deg); }
+    .parcel-folds span:nth-child(2) { top: 40%; right: 31%; width: 56%; height: 46%; transform: rotate(-27deg) skewX(-7deg); background: linear-gradient(135deg, rgba(168,214,194,.73), rgba(252,245,231,.76) 45%, rgba(187,62,50,.42)); }
+    .parcel-folds span:nth-child(3) { top: -10%; right: -5%; width: 43%; height: 78%; transform: rotate(-11deg); background: repeating-linear-gradient(135deg, rgba(252,245,231,.58) 0 7px, rgba(187,62,50,.31) 7px 10px, rgba(168,214,194,.24) 10px 18px); }
+    .parcel-folds::after { position: absolute; top: 25%; right: 27%; width: 32%; height: 3px; transform: rotate(-26deg); background: var(--red); box-shadow: 0 9px 0 rgba(252,245,231,.68), 0 -9px 0 rgba(168,214,194,.6); content: ""; }
     .hero-layout { position: relative; z-index: 1; display: grid; min-height: min(740px, calc(100svh - var(--header))); align-content: center; padding: 74px 0 82px; }
     .hero-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 23px; color: #f3d7a5; font-size: .67rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
     .hero-kicker::before { width: 9px; height: 9px; background: var(--mint); content: ""; }
@@ -251,7 +259,8 @@
 
   <main id="main-content">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <!-- ASSET: An approved storefront image may be added as a lightweight CSS background using assets/hero/morris-park-storefront.webp. Do not use stock or generated food photography. -->
+      <!-- The layered parcel geometry is a non-documentary package-material motif and does not depict the storefront, food, people, or business inventory. -->
+      <div class="parcel-folds" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="wrap hero-layout">
         <div class="hero-kicker">1007 Morris Park Avenue · Bronx</div>
         <h1 id="hero-heading">A neighborhood<br><em>bake shop, boxed up.</em></h1>
@@ -266,7 +275,7 @@
             Call the shop
           </a>
         </div>
-        <div class="hero-note">The provider page is the live source for menu availability and fulfillment options.</div>
+        <div class="hero-note">For delivery or pickup, open the live Uber Eats menu.</div>
       </div>
       <aside class="label-card" aria-label="Morris Park Bake Shop location">
         <span>Bronx, NY</span><strong>Morris Park<br>Bake Shop</strong><small>1007 Morris Park Avenue<br>Call (718) 892-4968</small>
@@ -279,8 +288,8 @@
         <div class="box-art" aria-hidden="true"><div class="box-art__stamp">Bake shop<br>Bronx</div><div class="box-art__copy"><span>Morris Park Avenue</span><strong>Pick it up.<br>Send it out.</strong></div></div>
         <div class="intro-copy">
           <p class="eyebrow">The shop</p>
-          <h2 class="heading" id="shop-heading">Straightforward next steps for a bakery visit.</h2>
-          <p class="lede">This page keeps the useful choices close: the current provider menu, a direct phone number, and a clear route to the Bronx location. It does not repeat prices or availability that may change in the live menu.</p>
+          <h2 class="heading" id="shop-heading">The local stop, made simple.</h2>
+          <p class="lede">Choose the way you want to connect: open the live menu for delivery or pickup, call the shop, or head over to Morris Park Avenue.</p>
           <dl class="details">
             <div><dt>Address</dt><dd>1007 Morris Park Avenue, Bronx, NY 10462</dd></div>
             <div><dt>Phone</dt><dd><a href="tel:+17188924968">(718) 892-4968</a></dd></div>
@@ -297,12 +306,12 @@
           <div class="heading-row__actions"><a class="button button--line" href="tel:+17188924968">Call first</a><a class="button button--red" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Open live menu</a></div>
         </div>
         <div class="category-grid" aria-label="Current live menu categories">
-          <article class="category-card"><span>Current menu category</span><h3>Cookies<br>&amp; sweets</h3><p>View current selections and prices through the verified ordering page.</p></article>
-          <article class="category-card"><span>Current menu category</span><h3>Pastries<br>&amp; breakfast</h3><p>Use the live provider menu for the most current item availability.</p></article>
+          <article class="category-card"><span>Current menu category</span><h3>Cookies<br>&amp; sweets</h3><p>Open the live menu to browse current selections and prices.</p></article>
+          <article class="category-card"><span>Current menu category</span><h3>Pastries<br>&amp; breakfast</h3><p>Open the live menu to see the latest available choices.</p></article>
           <article class="category-card"><span>Current menu category</span><h3>Cakes<br>&amp; cheesecakes</h3><p>Browse the current online listing or call the shop with a question.</p></article>
-          <article class="category-card"><span>Current menu category</span><h3>Italian<br>ice</h3><p>Fulfillment and availability are shown by the ordering provider.</p></article>
+          <article class="category-card"><span>Current menu category</span><h3>Italian<br>ice</h3><p>Open the live menu for the latest delivery and pickup options.</p></article>
         </div>
-        <div class="live-menu-note"><p><strong>Why open the live menu?</strong> Prices, inventory, and service availability can change. The direct Uber Eats page is used here instead of copying an extensive menu that may go out of date.</p><a class="button button--cream" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a></div>
+        <div class="live-menu-note"><p><strong>Ready when you are.</strong> Browse the live menu for the latest selections and available delivery or pickup options.</p><a class="button button--cream" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a></div>
       </div>
     </section>
 
@@ -311,7 +320,7 @@
         <div class="cake-copy">
           <p class="eyebrow">Cake questions</p>
           <h2 class="heading" id="cakes-heading">For a custom-cake question, start with a real conversation.</h2>
-          <p class="lede">The previous form did not have a connected delivery path. Rather than collect an inquiry that may not reach the shop, this page provides the verified phone number for direct questions.</p>
+          <p class="lede">For a cake question, call the shop directly and start the conversation with the team at the counter.</p>
           <a class="button button--cocoa" href="tel:+17188924968">Call (718) 892-4968</a>
         </div>
         <div class="cake-art" aria-hidden="true"><span>Make it special</span></div>
@@ -356,6 +365,20 @@
       links.forEach((link) => link.addEventListener('click', () => setMenu(false)));
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
       window.addEventListener('resize', () => { if (window.innerWidth >= 920 && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
+
+      const initialiseMotion = () => {
+        if (!window.gsap || !window.ScrollTrigger) return;
+        gsap.registerPlugin(ScrollTrigger);
+        const media = gsap.matchMedia();
+        media.add('(prefers-reduced-motion: no-preference)', () => {
+          gsap.to('.hero', { '--parcel-rotation': '13deg', '--parcel-shift': '-28px', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .65 } });
+          gsap.to('.label-card', { rotation: -1, y: -24, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .65 } });
+          gsap.utils.toArray('.category-card').forEach((card, index) => {
+            gsap.to(card, { y: index % 2 ? 14 : -14, rotation: index % 2 ? 1.2 : -1.2, ease: 'none', scrollTrigger: { trigger: '.menu-section', start: 'top bottom', end: 'bottom top', scrub: .7 } });
+          });
+        });
+      };
+      window.addEventListener('load', initialiseMotion, { once: true });
     })();
   </script>
 </body>
