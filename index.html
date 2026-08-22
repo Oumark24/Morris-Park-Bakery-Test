@@ -18,6 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./assets/visuals/hero-package-world.svg" fetchpriority="high">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script type="application/ld+json">
@@ -107,37 +108,45 @@
     .mobile-menu__links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.19); font-family: var(--display); font-size: 2.12rem; line-height: 1; }
     .mobile-menu__actions { display: grid; gap: 10px; }
 
-    .hero { position: relative; overflow: hidden; --parcel-rotation: 0deg; --parcel-shift: 0px; background: linear-gradient(90deg, rgba(74,27,21,.98) 0%, rgba(90,36,28,.9) 46%, rgba(90,36,28,.34) 100%), var(--cocoa); color: #fff; }
-    .hero::before { position: absolute; inset: 0; opacity: .38; background-image: linear-gradient(45deg, transparent 48%, rgba(255,255,255,.15) 49% 51%, transparent 52%), linear-gradient(-45deg, transparent 48%, rgba(255,255,255,.15) 49% 51%, transparent 52%); background-size: 30px 30px; mask-image: linear-gradient(90deg,#000,transparent 79%); content: ""; }
-    .hero::after { position: absolute; right: -185px; bottom: -230px; width: min(78vw,780px); height: min(78vw,780px); transform: rotate(var(--parcel-rotation)); border: 2px solid rgba(255,255,255,.17); border-radius: 50%; box-shadow: 0 0 0 24px rgba(255,255,255,.035), 0 0 0 49px rgba(255,255,255,.03); content: ""; will-change: transform; }
-    .parcel-folds { position: absolute; top: 0; right: max(-100px, -8vw); width: min(50vw, 670px); height: 100%; transform: translateX(var(--parcel-shift)) rotate(var(--parcel-rotation)); transform-origin: 82% 50%; opacity: .96; pointer-events: none; will-change: transform; }
-    .parcel-folds span { position: absolute; display: block; border: 1px solid rgba(255,255,255,.23); background: linear-gradient(135deg, rgba(252,245,231,.92), rgba(168,214,194,.34) 48%, rgba(187,62,50,.52)); box-shadow: inset 0 0 45px rgba(41,28,24,.24), 0 24px 54px rgba(25,9,7,.22); }
-    .parcel-folds span:nth-child(1) { top: 12%; right: 5%; width: 72%; height: 55%; transform: rotate(18deg) skewY(-7deg); }
-    .parcel-folds span:nth-child(2) { top: 40%; right: 31%; width: 56%; height: 46%; transform: rotate(-27deg) skewX(-7deg); background: linear-gradient(135deg, rgba(168,214,194,.73), rgba(252,245,231,.76) 45%, rgba(187,62,50,.42)); }
-    .parcel-folds span:nth-child(3) { top: -10%; right: -5%; width: 43%; height: 78%; transform: rotate(-11deg); background: repeating-linear-gradient(135deg, rgba(252,245,231,.58) 0 7px, rgba(187,62,50,.31) 7px 10px, rgba(168,214,194,.24) 10px 18px); }
-    .parcel-folds::after { position: absolute; top: 25%; right: 27%; width: 32%; height: 3px; transform: rotate(-26deg); background: var(--red); box-shadow: 0 9px 0 rgba(252,245,231,.68), 0 -9px 0 rgba(168,214,194,.6); content: ""; }
-    .hero-layout { position: relative; z-index: 1; display: grid; min-height: min(740px, calc(100svh - var(--header))); align-content: center; padding: 74px 0 82px; }
+    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: min(820px, calc(100svh - var(--header) + 44px)); background: #3c1714; color: #fff; }
+    .hero::before { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(54,18,14,.96) 0%, rgba(63,21,17,.88) 39%, rgba(74,27,21,.47) 66%, rgba(49,15,14,.16) 100%); content: ""; pointer-events: none; }
+    .hero::after { position: absolute; z-index: 2; inset: 0; background: linear-gradient(180deg, rgba(252,245,231,.08), transparent 18%, rgba(28,8,8,.48) 100%), radial-gradient(ellipse at 72% 48%, transparent 5%, rgba(23,6,7,.1) 46%, rgba(23,6,7,.63) 100%); content: ""; pointer-events: none; }
+    .package-visual { position: absolute; z-index: 0; inset: -7%; overflow: hidden; perspective: 1700px; background: #3c1714; will-change: transform; }
+    .package-visual__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 69% center; transform: scale(1.06); filter: saturate(1.06) contrast(1.04); will-change: transform; }
+    .package-visual__grid { position: absolute; inset: 0; opacity: .32; background-image: linear-gradient(90deg, rgba(252,245,231,.13) 1px, transparent 1px), linear-gradient(rgba(252,245,231,.13) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(90deg, #000, transparent 84%); mix-blend-mode: soft-light; }
+    .package-visual__tone { position: absolute; inset: 0; background: linear-gradient(118deg, rgba(168,214,194,.18), transparent 35% 64%, rgba(187,62,50,.18)), radial-gradient(ellipse at 73% 76%, rgba(252,245,231,.2), transparent 47%); mix-blend-mode: screen; }
+    .package-stage { position: absolute; z-index: 3; top: 50%; right: max(-5vw, -72px); width: min(54vw, 760px); height: min(58vw, 705px); transform: translateY(-50%); transform-style: preserve-3d; pointer-events: none; will-change: transform; }
+    .package-stage__form { position: absolute; display: block; border: 1px solid rgba(252,245,231,.36); transform-style: preserve-3d; box-shadow: inset 0 0 52px rgba(252,245,231,.1), 0 28px 62px rgba(18,5,5,.29); will-change: transform, opacity; }
+    .package-stage__form--shadow { inset: 29% 7% 14% 11%; transform: rotate(-19deg) rotateY(-17deg) translateZ(-46px); background: linear-gradient(145deg, rgba(35,9,9,.58), rgba(187,62,50,.17)); box-shadow: 24px 34px 66px rgba(18,3,4,.48); }
+    .package-stage__form--lid { inset: 14% 14% 23% 17%; transform: rotate(17deg) rotateY(19deg) translateZ(20px); background: linear-gradient(135deg, rgba(168,214,194,.66), rgba(252,245,231,.24) 48%, rgba(187,62,50,.28)); box-shadow: inset 15px 14px 37px rgba(255,255,255,.28), inset -18px -18px 44px rgba(41,28,24,.25), 0 32px 58px rgba(16,4,4,.34); }
+    .package-stage__form--ribbon { inset: 9% 40% 16% 43%; transform: rotate(17deg) rotateY(19deg) translateZ(86px); border-color: rgba(252,245,231,.42); background: linear-gradient(90deg, rgba(187,62,50,.94), rgba(246,211,156,.58) 50%, rgba(187,62,50,.78)); box-shadow: inset 7px 0 13px rgba(255,255,255,.16), 0 0 24px rgba(187,62,50,.31); }
+    .package-stage__seal { position: absolute; z-index: 2; top: 30%; left: 37%; width: 23%; aspect-ratio: 1; border: 1px solid rgba(252,245,231,.62); border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.7), rgba(252,245,231,.25) 32%, rgba(168,214,194,.58) 72%, rgba(90,36,28,.55)); box-shadow: inset 9px 10px 20px rgba(255,255,255,.25), inset -12px -13px 29px rgba(41,28,24,.23), 0 0 0 11px rgba(252,245,231,.035), 0 22px 45px rgba(13,3,3,.4); transform: rotate(17deg) rotateY(19deg) translateZ(158px); will-change: transform, opacity; }
+    .package-stage__crease { position: absolute; top: 16%; right: 4%; width: 69%; height: 69%; border: 1px solid rgba(252,245,231,.39); border-left-color: transparent; border-radius: 50%; transform: rotate(-36deg) translateZ(128px); box-shadow: 0 0 0 25px rgba(252,245,231,.03), 0 0 0 51px rgba(168,214,194,.025); will-change: transform; }
+    .package-stage__dot { position: absolute; z-index: 3; width: 10px; height: 10px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 9px rgba(168,214,194,.12), 0 0 36px 8px rgba(168,214,194,.36); transform: translateZ(190px); will-change: transform, opacity; }
+    .package-stage__dot--one { top: 13%; left: 25%; }
+    .package-stage__dot--two { right: 16%; bottom: 16%; width: 6px; height: 6px; opacity: .82; }
+    .hero-layout { position: relative; z-index: 5; display: grid; min-height: inherit; align-content: center; padding: 76px 0 96px; }
     .hero-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 23px; color: #f3d7a5; font-size: .67rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
     .hero-kicker::before { width: 9px; height: 9px; background: var(--mint); content: ""; }
-    .hero h1 { max-width: 850px; margin: 0; font-family: var(--display); font-size: clamp(3.55rem,10vw,8rem); font-weight: 400; letter-spacing: -.065em; line-height: .8; }
+    .hero h1 { max-width: 850px; margin: 0; font-family: var(--display); font-size: clamp(3.55rem,10vw,8rem); font-weight: 400; letter-spacing: -.065em; line-height: .8; text-shadow: 0 8px 32px rgba(18,3,4,.2); }
     .hero h1 em { display: block; margin: .18em 0 0 .1em; color: #f3d7a5; font-style: italic; }
-    .hero p { max-width: 540px; margin: 32px 0 0; color: rgba(255,255,255,.77); font-size: .98rem; }
+    .hero p { max-width: 540px; margin: 32px 0 0; color: rgba(255,255,255,.8); font-size: .98rem; }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 31px; }
-    .hero-note { display: flex; gap: 9px; max-width: 480px; margin-top: 24px; color: rgba(255,255,255,.62); font-size: .73rem; }
+    .hero-note { display: flex; gap: 9px; max-width: 480px; margin-top: 24px; color: rgba(255,255,255,.65); font-size: .73rem; }
     .hero-note::before { width: 18px; height: 1px; flex: none; margin-top: .68em; background: var(--mint); content: ""; }
-    .hero-cake-stack { position: absolute; z-index: 0; right: clamp(18px, 7vw, 114px); bottom: 46px; width: clamp(218px, 24vw, 334px); height: 306px; pointer-events: none; filter: drop-shadow(0 17px 22px rgba(36,10,7,.24)); }
-    .hero-cake-stack__base { position: absolute; right: 4%; bottom: 3px; width: 91%; height: 21px; border: 1px solid rgba(252,245,231,.46); border-radius: 50%; background: linear-gradient(90deg, rgba(168,214,194,.12), rgba(252,245,231,.43), rgba(168,214,194,.12)); }
-    .hero-cake-stack__layer { position: absolute; right: 50%; width: var(--cake-width); height: var(--cake-height); transform: translate(50%,var(--cake-y,0)) rotate(var(--cake-turn,0deg)); transform-origin: 50% 100%; border: 1px solid rgba(252,245,231,.5); border-radius: 42% 42% 17px 17px / 18% 18% 17px 17px; background: linear-gradient(180deg, rgba(252,245,231,.9) 0 13%, rgba(187,62,50,.64) 14% 84%, rgba(65,27,20,.78) 85%); box-shadow: inset 0 9px 0 rgba(255,255,255,.16), inset 0 -12px 0 rgba(41,28,24,.22); opacity: var(--cake-opacity,.62); will-change: transform,opacity; }
-    .hero-cake-stack__layer::after { position: absolute; right: 12%; bottom: 9px; left: 12%; height: 3px; border-radius: 99px; background: rgba(168,214,194,.63); content: ""; }
-    .hero-cake-stack__layer--one { --cake-width: 93%; --cake-height: 66px; }
-    .hero-cake-stack__layer--two { --cake-width: 72%; --cake-height: 54px; }
-    .hero-cake-stack__layer--three { --cake-width: 51%; --cake-height: 44px; }
-    .hero-cake-stack__frosting { position: absolute; right: 50%; width: 66%; height: 35px; transform: translate(50%,var(--cream-y,0)) rotate(var(--cream-turn,0deg)); border: 6px solid rgba(252,245,231,.84); border-right-color: transparent; border-bottom-color: transparent; border-radius: 50%; opacity: var(--cream-opacity,.14); will-change: transform,opacity; }
-    .hero-cake-stack__frosting--one { top: 68px; }
-    .hero-cake-stack__frosting--two { top: 106px; width: 46%; }
-    .hero-cake-stack__seal { position: absolute; top: 38px; right: 45%; width: 9px; height: 9px; transform: scale(var(--seal-scale,.72)); border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 7px rgba(168,214,194,.14); opacity: var(--seal-opacity,.18); will-change: transform,opacity; }
-    @media (max-width: 760px) { .hero-cake-stack { right: -33px; bottom: 12px; width: 215px; height: 238px; opacity: .38; } }
-    .label-card { position: absolute; right: 0; bottom: 48px; display: none; width: 234px; padding: 20px; transform: rotate(-5deg); border: 1px solid rgba(41,28,24,.16); background: var(--butter); color: var(--cocoa); box-shadow: var(--shadow); }
+    @media (max-width: 760px) {
+      .hero { min-height: min(805px, calc(100svh - var(--header) + 74px)); }
+      .hero::before { background: linear-gradient(180deg, rgba(54,18,14,.64) 0%, rgba(54,18,14,.73) 51%, rgba(54,18,14,.96) 93%), linear-gradient(90deg, rgba(54,18,14,.72), transparent); }
+      .package-visual { inset: 0 -40% -5% -12%; }
+      .package-visual__image { object-position: 69% center; transform: scale(1.1); }
+      .package-stage { top: 43%; right: -33%; width: 123vw; height: 112vw; opacity: .88; }
+      .hero-layout { align-content: end; padding: 115px 0 54px; }
+      .hero h1 { font-size: clamp(3.35rem, 16.3vw, 5.35rem); }
+      .hero p { margin-top: 24px; font-size: .94rem; line-height: 1.58; }
+      .hero-actions { margin-top: 27px; }
+      .hero-note { margin-top: 22px; }
+    }
+    .label-card { position: absolute; z-index: 6; right: 0; bottom: 48px; display: none; width: 234px; padding: 20px; transform: rotate(-5deg); border: 1px solid rgba(41,28,24,.16); background: var(--butter); color: var(--cocoa); box-shadow: var(--shadow); }
     .label-card::before { position: absolute; top: 11px; right: 11px; bottom: 11px; left: 11px; border: 1px solid rgba(90,36,28,.28); content: ""; }
     .label-card > * { position: relative; z-index: 1; }
     .label-card span { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
@@ -271,16 +280,20 @@
 
   <main id="main-content">
     <section class="hero" id="top" aria-labelledby="hero-heading">
-      <!-- The layered parcel geometry is a non-documentary package-material motif and does not depict the storefront, food, people, or business inventory. -->
-      <div class="parcel-folds" aria-hidden="true"><span></span><span></span><span></span></div>
-      <div class="hero-cake-stack" data-cake-stack aria-hidden="true">
-        <span class="hero-cake-stack__base"></span>
-        <span class="hero-cake-stack__layer hero-cake-stack__layer--one" data-cake-layer="one"></span>
-        <span class="hero-cake-stack__layer hero-cake-stack__layer--two" data-cake-layer="two"></span>
-        <span class="hero-cake-stack__layer hero-cake-stack__layer--three" data-cake-layer="three"></span>
-        <span class="hero-cake-stack__frosting hero-cake-stack__frosting--one" data-cake-frosting="one"></span>
-        <span class="hero-cake-stack__frosting hero-cake-stack__frosting--two" data-cake-frosting="two"></span>
-        <span class="hero-cake-stack__seal" data-cake-seal></span>
+      <!-- Local abstract package-world material in ./assets/visuals/hero-package-world.svg is non-documentary art direction only. It does not depict the storefront, food, people, inventory, menu, or actual packaging of Morris Park Bake Shop. -->
+      <div class="package-visual" data-package-visual aria-hidden="true">
+        <img class="package-visual__image" data-package-image src="./assets/visuals/hero-package-world.svg" width="1536" height="1024" alt="">
+        <span class="package-visual__grid"></span>
+        <span class="package-visual__tone"></span>
+      </div>
+      <div class="package-stage" data-package-stage aria-hidden="true">
+        <span class="package-stage__form package-stage__form--shadow" data-package-form="shadow"></span>
+        <span class="package-stage__form package-stage__form--lid" data-package-form="lid"></span>
+        <span class="package-stage__form package-stage__form--ribbon" data-package-form="ribbon"></span>
+        <span class="package-stage__seal" data-package-seal></span>
+        <span class="package-stage__crease" data-package-crease></span>
+        <span class="package-stage__dot package-stage__dot--one" data-package-dot="one"></span>
+        <span class="package-stage__dot package-stage__dot--two" data-package-dot="two"></span>
       </div>
       <div class="wrap hero-layout">
         <div class="hero-kicker">1007 Morris Park Avenue · Bronx</div>
@@ -387,60 +400,65 @@
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
       window.addEventListener('resize', () => { if (window.innerWidth >= 920 && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
 
-      const initialiseCakeStack = () => {
-        const stack = document.querySelector('[data-cake-stack]');
+      const initialisePackageMotion = () => {
         const hero = document.querySelector('.hero');
-        if (!stack || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const layers = [
-          { element: stack.querySelector('[data-cake-layer="one"]'), start: 89, end: 0, opacity: .92 },
-          { element: stack.querySelector('[data-cake-layer="two"]'), start: 54, end: -61, opacity: .88 },
-          { element: stack.querySelector('[data-cake-layer="three"]'), start: 25, end: -113, opacity: .84 }
-        ];
-        const frosting = [
-          { element: stack.querySelector('[data-cake-frosting="one"]'), start: 68, end: -95 },
-          { element: stack.querySelector('[data-cake-frosting="two"]'), start: 56, end: -138 }
-        ];
-        const seal = stack.querySelector('[data-cake-seal]');
-        let ticking = false;
-        const clamp = (value) => Math.max(0, Math.min(1, value));
-        const render = () => {
-          const progress = clamp(window.scrollY / Math.max(hero.offsetHeight * .74, 1));
-          layers.forEach(({ element, start, end, opacity }, index) => {
-            if (!element) return;
-            const local = clamp((progress - index * .085) / .72);
-            element.style.setProperty('--cake-y', `${start + (end - start) * local}px`);
-            element.style.setProperty('--cake-turn', `${(1 - local) * (index % 2 ? -2 : 2)}deg`);
-            element.style.setProperty('--cake-opacity', `${.36 + (opacity - .36) * local}`);
-          });
-          frosting.forEach(({ element, start, end }, index) => {
-            if (!element) return;
-            const local = clamp((progress - .12 - index * .09) / .66);
-            element.style.setProperty('--cream-y', `${start + (end - start) * local}px`);
-            element.style.setProperty('--cream-turn', `${local * (index ? -9 : 9)}deg`);
-            element.style.setProperty('--cream-opacity', `${.12 + local * .78}`);
-          });
-          if (seal) {
-            seal.style.transform = `translateY(${-progress * 144}px) scale(${.7 + progress * .48})`;
-            seal.style.setProperty('--seal-opacity', `${.18 + progress * .82}`);
+        const visual = document.querySelector('[data-package-visual]');
+        const image = document.querySelector('[data-package-image]');
+        const stage = document.querySelector('[data-package-stage]');
+        const forms = Array.from(document.querySelectorAll('[data-package-form]'));
+        const seal = document.querySelector('[data-package-seal]');
+        const crease = document.querySelector('[data-package-crease]');
+        const dots = Array.from(document.querySelectorAll('[data-package-dot]'));
+        if (!hero || !visual || !image || !stage || !window.gsap || !window.ScrollTrigger) return;
+
+        const packageMedia = gsap.matchMedia();
+        packageMedia.add(
+          {
+            isDesktop: '(min-width: 761px)',
+            isMobile: '(max-width: 760px)',
+            reduceMotion: '(prefers-reduced-motion: reduce)'
+          },
+          (context) => {
+            const { isDesktop, reduceMotion } = context.conditions;
+            if (reduceMotion) return;
+
+            gsap.set(image, { scale: isDesktop ? 1.06 : 1.1, transformOrigin: '69% 50%' });
+            gsap.set(stage, { transformPerspective: 1700, transformOrigin: '56% 52%' });
+            gsap.set(forms, { transformOrigin: '50% 50%' });
+
+            const motion = gsap.timeline({
+              defaults: { ease: 'none' },
+              scrollTrigger: {
+                trigger: hero,
+                start: 'top top',
+                end: 'bottom top',
+                scrub: isDesktop ? .75 : .52,
+                invalidateOnRefresh: true
+              }
+            });
+
+            motion
+              .to(image, { scale: isDesktop ? 1.18 : 1.15, xPercent: isDesktop ? -6 : -3, yPercent: isDesktop ? -5 : -2 }, 0)
+              .to(visual, { rotation: isDesktop ? 1.4 : .7, yPercent: isDesktop ? -3 : -1 }, 0)
+              .to(stage, { yPercent: isDesktop ? -59 : -54, rotationY: isDesktop ? 32 : 16, rotationX: isDesktop ? -8 : -4, rotation: isDesktop ? 9 : 4, scale: isDesktop ? 1.12 : 1.03 }, 0)
+              .to(forms[0], { xPercent: -19, yPercent: 20, rotation: -28, rotationY: -30, scale: 1.08 }, 0)
+              .to(forms[1], { xPercent: 16, yPercent: -35, rotation: 30, rotationY: 34, rotationX: -35, scale: 1.06 }, 0)
+              .to(forms[2], { xPercent: 28, yPercent: -35, rotation: 30, rotationY: 34, rotationX: -35, scale: 1.08 }, 0)
+              .to(seal, { xPercent: -78, yPercent: 42, rotation: -37, rotationY: -42, scale: 1.32 }, 0)
+              .to(crease, { rotation: 36, rotationY: -24, scale: 1.14 }, 0)
+              .to(dots[0], { xPercent: 170, yPercent: -155, scale: 1.85, autoAlpha: .72 }, 0)
+              .to(dots[1], { xPercent: -150, yPercent: 130, scale: .5, autoAlpha: 0 }, 0);
           }
-          ticking = false;
-        };
-        const onScroll = () => { if (!ticking) { ticking = true; window.requestAnimationFrame(render); } };
-        render();
-        window.addEventListener('scroll', onScroll, { passive: true });
+        );
       };
 
       const initialiseMotion = () => {
-        initialiseCakeStack();
         if (!window.gsap || !window.ScrollTrigger) return;
         gsap.registerPlugin(ScrollTrigger);
-        const media = gsap.matchMedia();
-        media.add('(prefers-reduced-motion: no-preference)', () => {
-          gsap.to('.hero', { '--parcel-rotation': '13deg', '--parcel-shift': '-28px', ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .65 } });
-          gsap.to('.label-card', { rotation: -1, y: -24, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: .65 } });
-          gsap.utils.toArray('.category-card').forEach((card, index) => {
-            gsap.to(card, { y: index % 2 ? 14 : -14, rotation: index % 2 ? 1.2 : -1.2, ease: 'none', scrollTrigger: { trigger: '.menu-section', start: 'top bottom', end: 'bottom top', scrub: .7 } });
-          });
+        initialisePackageMotion();
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        gsap.utils.toArray('.category-card').forEach((card, index) => {
+          gsap.to(card, { y: index % 2 ? 14 : -14, rotation: index % 2 ? 1.2 : -1.2, ease: 'none', scrollTrigger: { trigger: '.menu-section', start: 'top bottom', end: 'bottom top', scrub: .7 } });
         });
       };
       window.addEventListener('load', initialiseMotion, { once: true });
