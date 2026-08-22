@@ -125,6 +125,18 @@
     .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 31px; }
     .hero-note { display: flex; gap: 9px; max-width: 480px; margin-top: 24px; color: rgba(255,255,255,.62); font-size: .73rem; }
     .hero-note::before { width: 18px; height: 1px; flex: none; margin-top: .68em; background: var(--mint); content: ""; }
+    .hero-cake-stack { position: absolute; z-index: 0; right: clamp(18px, 7vw, 114px); bottom: 46px; width: clamp(218px, 24vw, 334px); height: 306px; pointer-events: none; filter: drop-shadow(0 17px 22px rgba(36,10,7,.24)); }
+    .hero-cake-stack__base { position: absolute; right: 4%; bottom: 3px; width: 91%; height: 21px; border: 1px solid rgba(252,245,231,.46); border-radius: 50%; background: linear-gradient(90deg, rgba(168,214,194,.12), rgba(252,245,231,.43), rgba(168,214,194,.12)); }
+    .hero-cake-stack__layer { position: absolute; right: 50%; width: var(--cake-width); height: var(--cake-height); transform: translate(50%,var(--cake-y,0)) rotate(var(--cake-turn,0deg)); transform-origin: 50% 100%; border: 1px solid rgba(252,245,231,.5); border-radius: 42% 42% 17px 17px / 18% 18% 17px 17px; background: linear-gradient(180deg, rgba(252,245,231,.9) 0 13%, rgba(187,62,50,.64) 14% 84%, rgba(65,27,20,.78) 85%); box-shadow: inset 0 9px 0 rgba(255,255,255,.16), inset 0 -12px 0 rgba(41,28,24,.22); opacity: var(--cake-opacity,.62); will-change: transform,opacity; }
+    .hero-cake-stack__layer::after { position: absolute; right: 12%; bottom: 9px; left: 12%; height: 3px; border-radius: 99px; background: rgba(168,214,194,.63); content: ""; }
+    .hero-cake-stack__layer--one { --cake-width: 93%; --cake-height: 66px; }
+    .hero-cake-stack__layer--two { --cake-width: 72%; --cake-height: 54px; }
+    .hero-cake-stack__layer--three { --cake-width: 51%; --cake-height: 44px; }
+    .hero-cake-stack__frosting { position: absolute; right: 50%; width: 66%; height: 35px; transform: translate(50%,var(--cream-y,0)) rotate(var(--cream-turn,0deg)); border: 6px solid rgba(252,245,231,.84); border-right-color: transparent; border-bottom-color: transparent; border-radius: 50%; opacity: var(--cream-opacity,.14); will-change: transform,opacity; }
+    .hero-cake-stack__frosting--one { top: 68px; }
+    .hero-cake-stack__frosting--two { top: 106px; width: 46%; }
+    .hero-cake-stack__seal { position: absolute; top: 38px; right: 45%; width: 9px; height: 9px; transform: scale(var(--seal-scale,.72)); border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 7px rgba(168,214,194,.14); opacity: var(--seal-opacity,.18); will-change: transform,opacity; }
+    @media (max-width: 760px) { .hero-cake-stack { right: -33px; bottom: 12px; width: 215px; height: 238px; opacity: .38; } }
     .label-card { position: absolute; right: 0; bottom: 48px; display: none; width: 234px; padding: 20px; transform: rotate(-5deg); border: 1px solid rgba(41,28,24,.16); background: var(--butter); color: var(--cocoa); box-shadow: var(--shadow); }
     .label-card::before { position: absolute; top: 11px; right: 11px; bottom: 11px; left: 11px; border: 1px solid rgba(90,36,28,.28); content: ""; }
     .label-card > * { position: relative; z-index: 1; }
@@ -261,6 +273,15 @@
     <section class="hero" id="top" aria-labelledby="hero-heading">
       <!-- The layered parcel geometry is a non-documentary package-material motif and does not depict the storefront, food, people, or business inventory. -->
       <div class="parcel-folds" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="hero-cake-stack" data-cake-stack aria-hidden="true">
+        <span class="hero-cake-stack__base"></span>
+        <span class="hero-cake-stack__layer hero-cake-stack__layer--one" data-cake-layer="one"></span>
+        <span class="hero-cake-stack__layer hero-cake-stack__layer--two" data-cake-layer="two"></span>
+        <span class="hero-cake-stack__layer hero-cake-stack__layer--three" data-cake-layer="three"></span>
+        <span class="hero-cake-stack__frosting hero-cake-stack__frosting--one" data-cake-frosting="one"></span>
+        <span class="hero-cake-stack__frosting hero-cake-stack__frosting--two" data-cake-frosting="two"></span>
+        <span class="hero-cake-stack__seal" data-cake-seal></span>
+      </div>
       <div class="wrap hero-layout">
         <div class="hero-kicker">1007 Morris Park Avenue · Bronx</div>
         <h1 id="hero-heading">A neighborhood<br><em>bake shop, boxed up.</em></h1>
@@ -366,7 +387,51 @@
       document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
       window.addEventListener('resize', () => { if (window.innerWidth >= 920 && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
 
+      const initialiseCakeStack = () => {
+        const stack = document.querySelector('[data-cake-stack]');
+        const hero = document.querySelector('.hero');
+        if (!stack || !hero || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const layers = [
+          { element: stack.querySelector('[data-cake-layer="one"]'), start: 89, end: 0, opacity: .92 },
+          { element: stack.querySelector('[data-cake-layer="two"]'), start: 54, end: -61, opacity: .88 },
+          { element: stack.querySelector('[data-cake-layer="three"]'), start: 25, end: -113, opacity: .84 }
+        ];
+        const frosting = [
+          { element: stack.querySelector('[data-cake-frosting="one"]'), start: 68, end: -95 },
+          { element: stack.querySelector('[data-cake-frosting="two"]'), start: 56, end: -138 }
+        ];
+        const seal = stack.querySelector('[data-cake-seal]');
+        let ticking = false;
+        const clamp = (value) => Math.max(0, Math.min(1, value));
+        const render = () => {
+          const progress = clamp(window.scrollY / Math.max(hero.offsetHeight * .74, 1));
+          layers.forEach(({ element, start, end, opacity }, index) => {
+            if (!element) return;
+            const local = clamp((progress - index * .085) / .72);
+            element.style.setProperty('--cake-y', `${start + (end - start) * local}px`);
+            element.style.setProperty('--cake-turn', `${(1 - local) * (index % 2 ? -2 : 2)}deg`);
+            element.style.setProperty('--cake-opacity', `${.36 + (opacity - .36) * local}`);
+          });
+          frosting.forEach(({ element, start, end }, index) => {
+            if (!element) return;
+            const local = clamp((progress - .12 - index * .09) / .66);
+            element.style.setProperty('--cream-y', `${start + (end - start) * local}px`);
+            element.style.setProperty('--cream-turn', `${local * (index ? -9 : 9)}deg`);
+            element.style.setProperty('--cream-opacity', `${.12 + local * .78}`);
+          });
+          if (seal) {
+            seal.style.transform = `translateY(${-progress * 144}px) scale(${.7 + progress * .48})`;
+            seal.style.setProperty('--seal-opacity', `${.18 + progress * .82}`);
+          }
+          ticking = false;
+        };
+        const onScroll = () => { if (!ticking) { ticking = true; window.requestAnimationFrame(render); } };
+        render();
+        window.addEventListener('scroll', onScroll, { passive: true });
+      };
+
       const initialiseMotion = () => {
+        initialiseCakeStack();
         if (!window.gsap || !window.ScrollTrigger) return;
         gsap.registerPlugin(ScrollTrigger);
         const media = gsap.matchMedia();
