@@ -417,23 +417,28 @@
     .modal-header { max-width: 580px; margin-bottom: 28px; }
     .modal-header h2 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.03; letter-spacing: -.04em; }
     .modal-header p { margin: 12px 0 0; color: var(--muted); }
-    .cake-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .cake-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
     .form-field { display: grid; gap: 8px; }
     .form-field.full { grid-column: 1 / -1; }
     .form-field label { color: var(--wine); font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
     .form-field input, .form-field select, .form-field textarea {
       width: 100%;
+      min-height: 48px;
       padding: 12px 13px;
       color: var(--ink);
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 10px;
     }
+    .form-field textarea { min-height: 132px; resize: vertical; }
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: 3px solid rgba(163,79,64,.22); border-color: var(--terracotta); }
-    .file-input { padding: 16px; border: 1px dashed var(--terracotta); border-radius: 10px; color: var(--wine); background: #fff7e9; }
-    .modal-submit { width: max-content; margin-top: 4px; padding-inline: 27px; }
+    .field-hint { margin: -1px 0 0; color: var(--muted); font-size: .75rem; }
+    .form-disclosure { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+    .form-actions { display: flex; grid-column: 1 / -1; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .modal-submit { min-height: 52px; margin: 0; padding-inline: 27px; }
     .form-message { display: none; grid-column: 1 / -1; margin: 0; padding: 13px 15px; color: #214621; background: var(--sage); border-radius: 10px; }
     .form-message.is-visible { display: block; }
+    .form-message a { color: inherit; font-weight: 800; }
     .modal-menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .menu-card { padding: 23px; background: var(--white); border: 1px solid var(--line); border-radius: 15px; }
     .menu-card h3 { margin: 0 0 16px; color: var(--wine); font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; }
@@ -574,13 +579,13 @@
     </div>
     <nav aria-label="Mobile primary navigation">
       <a href="#menu" data-open-modal="menuModal">Our Menu</a>
-      <a href="#custom-cakes" data-open-modal="cakeModal">Custom Cakes</a>
+      <a href="#custom-cakes" data-open-modal="custom-cakes">Custom Cakes</a>
       <a href="#creations">Our Creations</a>
       <a href="#visit">Visit Us</a>
     </nav>
     <div class="drawer-actions">
       <button class="drawer-order" type="button" data-open-modal="deliveryModal">Order Delivery</button>
-      <a class="drawer-call" href="tel:+17188924968">Call (718) 892-4968</a>
+      <a class="drawer-call" href="tel:7188924968">Call (718) 892-4968</a>
     </div>
   </aside>
 
@@ -592,7 +597,7 @@
         <p>From celebration cakes and crisp cookie boxes to classic Italian pastries, our family bakery makes the neighborhood’s sweet traditions fresh every day.</p>
         <div class="hero-buttons">
           <button class="button-primary" type="button" data-open-modal="deliveryModal">Order Online</button>
-          <a class="button-secondary" href="#custom-cakes" data-open-modal="cakeModal">Request Quote</a>
+          <a class="button-secondary" href="#custom-cakes" data-open-modal="custom-cakes">Request Quote</a>
         </div>
         <p class="hero-note">Pickup and delivery options available. Call the shop for same-day questions.</p>
       </div>
@@ -667,11 +672,11 @@
             <article class="visit-card">
               <h3>Call the shop</h3>
               <p>Questions about today’s selection or a last-minute order?</p>
-              <p style="margin-top: 14px"><a href="tel:+17188924968">(718) 892-4968</a></p>
+              <p style="margin-top: 14px"><a href="tel:7188924968">(718) 892-4968</a></p>
             </article>
             <article class="visit-card">
               <h3>Delivery</h3>
-              <p>Fresh pastries and cakes can come right to your door.</p>
+              <p>Choose Uber Eats, Grubhub, Seamless, or Postmates for current delivery and pickup options.</p>
               <p style="margin-top: 14px"><button class="inline-order" type="button" data-open-modal="deliveryModal">Choose a delivery service</button></p>
             </article>
           </div>
@@ -690,7 +695,7 @@
 
   <div class="mobile-fab" aria-label="Quick actions">
     <button class="mobile-fab-order" type="button" data-open-modal="deliveryModal">🛵 Order Delivery</button>
-    <a class="mobile-fab-call" href="tel:+17188924968">📞 Call Now</a>
+    <a class="mobile-fab-call" href="tel:7188924968">📞 Call Now</a>
   </div>
 
   <div class="modal" id="deliveryModal" hidden role="dialog" aria-modal="true" aria-labelledby="delivery-modal-title" aria-describedby="delivery-modal-description">
@@ -710,23 +715,45 @@
     </div>
   </div>
 
-  <div class="modal" id="cakeModal" hidden role="dialog" aria-modal="true" aria-labelledby="cake-modal-title" aria-describedby="cake-modal-description">
+  <div class="modal" id="custom-cakes" hidden role="dialog" aria-modal="true" aria-labelledby="cake-modal-title" aria-describedby="cake-modal-description">
     <div class="modal-panel" tabindex="-1">
-      <button class="modal-close" type="button" data-close-modal aria-label="Close custom cake request">×</button>
+      <button class="modal-close" type="button" data-close-modal aria-label="Close custom cake inquiry">×</button>
       <div class="modal-header">
         <p class="eyebrow">Start a custom order</p>
         <h2 id="cake-modal-title">Tell us about your celebration.</h2>
-        <p id="cake-modal-description">Share the essentials below and the Morris Park Bake Shop team will follow up to confirm your custom cake request.</p>
+        <p id="cake-modal-description">Share your contact details and cake requirements so your inquiry is ready for an owner-approved follow-up process.</p>
       </div>
-      <form class="cake-form" id="cakeForm">
-        <div class="form-field"><label for="eventType">Event type</label><select id="eventType" name="eventType" required><option value="">Select an event</option><option>Wedding</option><option>Birthday</option><option>Anniversary</option><option>Baby shower</option><option>Other celebration</option></select></div>
-        <div class="form-field"><label for="cakeSize">Cake size</label><select id="cakeSize" name="cakeSize" required><option value="">Select a size</option><option>6 inch (serves 8–10)</option><option>7 inch (serves 12–14)</option><option>8 inch (serves 16–18)</option><option>10 inch (serves 25–30)</option></select></div>
-        <div class="form-field"><label for="flavor">Flavor choice</label><select id="flavor" name="flavor" required><option value="">Choose a flavor</option><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Tiramisu</option><option>Cannoli</option><option>Strawberry Shortcake</option><option>Carrot</option><option>Oreo</option><option>Funfetti</option></select></div>
-        <div class="form-field"><label for="deliveryDate">Pickup or delivery date</label><input id="deliveryDate" name="deliveryDate" type="date" required></div>
-        <div class="form-field full"><label for="notes">Special requests</label><textarea id="notes" name="notes" rows="4" placeholder="Allergies, colors, inscription, or design notes"></textarea></div>
-        <div class="form-field full"><label for="inspiration">Inspiration photo (optional)</label><input class="file-input" id="inspiration" name="inspiration" type="file" accept="image/*"></div>
-        <p class="form-message" role="status">Thank you. Your request is ready for the team to review. Please call the bakery if you need an immediate confirmation.</p>
-        <button class="modal-submit" type="submit">Submit Request</button>
+      <form class="cake-form" id="cakeForm" aria-describedby="cake-form-notice cakeFormStatus">
+        <div class="form-field full">
+          <label for="customerName">Full name</label>
+          <input id="customerName" name="customerName" type="text" autocomplete="name" required>
+        </div>
+        <div class="form-field">
+          <label for="customerPhone">Phone number</label>
+          <input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" required>
+        </div>
+        <div class="form-field">
+          <label for="customerEmail">Email address</label>
+          <input id="customerEmail" name="customerEmail" type="email" inputmode="email" autocomplete="email" required>
+        </div>
+        <div class="form-field">
+          <label for="eventDate">Event date</label>
+          <input id="eventDate" name="eventDate" type="date" required>
+        </div>
+        <div class="form-field">
+          <label for="guestCount">Guest count / serving size</label>
+          <input id="guestCount" name="guestCount" type="number" inputmode="numeric" min="1" step="1" required>
+        </div>
+        <div class="form-field full">
+          <label for="cakeDetails">Flavor &amp; design details</label>
+          <textarea id="cakeDetails" name="cakeDetails" rows="5" required aria-describedby="cake-details-hint" placeholder="Share flavors, colors, inscription, dietary needs, and any design details."></textarea>
+          <p class="field-hint" id="cake-details-hint">The bakery can confirm what is available when they respond.</p>
+        </div>
+        <p class="form-disclosure" id="cake-form-notice">This prototype stores an inquiry draft only in this browser; connect an approved bakery inbox before using it for live customer submissions.</p>
+        <div class="form-actions">
+          <button class="modal-submit" type="submit">Request Quote</button>
+        </div>
+        <p class="form-message" id="cakeFormStatus" role="status" aria-live="polite">Your inquiry draft is saved in this browser. For an immediate confirmation, <a href="tel:7188924968">call Morris Park Bake Shop at (718) 892-4968</a>.</p>
       </form>
     </div>
   </div>
@@ -796,18 +823,23 @@
       mobileBackdrop.addEventListener('click', closeMobileMenu);
       mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
 
+      const getFocusable = container => Array.from(container.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])')).filter(element => !element.hidden);
       const openModal = (modal, trigger) => {
         if (!modal) return;
+        document.querySelectorAll('.modal:not([hidden])').forEach(openModal => { openModal.hidden = true; });
         lastModalTrigger = trigger;
         modal.hidden = false;
         body.classList.add('modal-open');
-        modal.querySelector('.modal-panel').focus();
+        window.requestAnimationFrame(() => {
+          const firstFocusable = getFocusable(modal)[0];
+          (firstFocusable || modal.querySelector('.modal-panel')).focus();
+        });
       };
       const closeModal = modal => {
         if (!modal || modal.hidden) return;
         modal.hidden = true;
         body.classList.remove('modal-open');
-        if (lastModalTrigger) lastModalTrigger.focus();
+        if (lastModalTrigger && document.contains(lastModalTrigger)) lastModalTrigger.focus();
       };
       document.querySelectorAll('[data-open-modal]').forEach(trigger => {
         trigger.addEventListener('click', event => {
@@ -821,18 +853,33 @@
         modal.addEventListener('click', event => { if (event.target === modal) closeModal(modal); });
       });
       document.addEventListener('keydown', event => {
+        const activeModal = document.querySelector('.modal:not([hidden])');
         if (event.key === 'Escape') {
-          const activeModal = document.querySelector('.modal:not([hidden])');
           if (activeModal) closeModal(activeModal);
           else if (mobileMenu.classList.contains('is-open')) closeMobileMenu();
+          return;
+        }
+        if (event.key === 'Tab' && activeModal) {
+          const focusable = getFocusable(activeModal);
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+          else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
         }
       });
 
       const cakeForm = document.getElementById('cakeForm');
+      const eventDate = document.getElementById('eventDate');
+      eventDate.min = new Date().toISOString().split('T')[0];
       cakeForm.addEventListener('submit', event => {
         event.preventDefault();
-        cakeForm.querySelector('.form-message').classList.add('is-visible');
-        cakeForm.querySelector('.form-message').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        if (!cakeForm.reportValidity()) return;
+        const formDraft = Object.fromEntries(new FormData(cakeForm).entries());
+        try { sessionStorage.setItem('morrisParkCakeInquiryDraft', JSON.stringify(formDraft)); } catch (error) { /* Browser privacy settings may disable session storage. */ }
+        const message = cakeForm.querySelector('.form-message');
+        message.classList.add('is-visible');
+        message.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'nearest' });
       });
     })();
   </script>
