@@ -7,462 +7,190 @@
   <title>Morris Park Bake Shop | Bronx, NY</title>
   <meta name="description" content="Morris Park Bake Shop is a Bronx bakery at 1007 Morris Park Avenue. Open the live Uber Eats menu, call the shop, or get directions.">
   <link rel="canonical" href="https://oumark24.github.io/Morris-Park-Bakery-Test/">
+  
+  <!-- Open Graph / Social Meta -->
   <meta property="og:site_name" content="Morris Park Bake Shop">
   <meta property="og:title" content="Morris Park Bake Shop | Bronx, NY">
   <meta property="og:description" content="Open the live menu, call the shop, or get directions to 1007 Morris Park Avenue.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oumark24.github.io/Morris-Park-Bakery-Test/">
+  
+  <!-- Twitter Meta -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Morris Park Bake Shop | Bronx, NY">
   <meta name="twitter:description" content="Open the live menu, call the shop, or get directions to 1007 Morris Park Avenue.">
+  
+  <!-- Fonts & Assets -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="./assets/visuals/hero-package-world.svg" fetchpriority="high">
+  
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Bakery",
-    "name": "Morris Park Bake Shop",
-    "url": "https://oumark24.github.io/Morris-Park-Bakery-Test/",
-    "telephone": "+17188924968",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "1007 Morris Park Avenue",
-      "addressLocality": "Bronx",
-      "addressRegion": "NY",
-      "postalCode": "10462",
-      "addressCountry": "US"
-    }
-  }
-  </script>
-  <!-- Analytics: insert an approved analytics snippet here when one is available. -->
-  <style>
-    :root {
-      --butter: #fcf5e7;
-      --butter-deep: #ead9bb;
-      --cream: #fffdf7;
-      --ink: #291c18;
-      --soft-ink: #705f56;
-      --cocoa: #5a241c;
-      --red: #bb3e32;
-      --mint: #a8d6c2;
-      --line: rgba(90,36,28,.17);
-      --shadow: 0 22px 56px rgba(73,40,27,.13);
-      --width: 1180px;
-      --header: 78px;
-      --display: "Bodoni Moda", Georgia, serif;
-      --body: "DM Sans", Arial, sans-serif;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header) + 18px); }
-    body { min-width: 320px; margin: 0; overflow-x: hidden; background: var(--butter); color: var(--ink); font-family: var(--body); line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    body.menu-open { overflow: hidden; }
-    a { color: inherit; text-decoration: none; }
-    button { font: inherit; }
-    :focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
-    .skip-link { position: fixed; z-index: 1000; top: 11px; left: 11px; transform: translateY(-160%); padding: 9px 14px; border-radius: 999px; background: var(--cream); color: var(--cocoa); font-size: .78rem; font-weight: 800; }
-    .skip-link:focus { transform: translateY(0); }
-    .wrap { width: min(var(--width), calc(100% - 40px)); margin: 0 auto; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 15px; color: var(--red); font-size: .66rem; font-weight: 800; letter-spacing: .16em; line-height: 1.2; text-transform: uppercase; }
-    .eyebrow::before { width: 21px; height: 1px; background: currentColor; content: ""; }
-    .heading { max-width: 720px; margin: 0; font-family: var(--display); font-size: clamp(2.25rem,5.2vw,4.45rem); font-weight: 400; letter-spacing: -.05em; line-height: .96; }
-    .lede { max-width: 600px; margin: 20px 0 0; color: var(--soft-ink); }
-    .button { display: inline-flex; min-height: 50px; align-items: center; justify-content: center; gap: 9px; padding: 11px 18px; border: 1px solid transparent; border-radius: 3px; font-size: .77rem; font-weight: 800; letter-spacing: .025em; line-height: 1.2; text-align: center; transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease; }
-    .button:hover { transform: translateY(-2px); }
-    .button--red { background: var(--red); color: #fff; box-shadow: 0 8px 18px rgba(187,62,50,.22); }
-    .button--red:hover { background: var(--cocoa); }
-    .button--cocoa { background: var(--cocoa); color: #fff; }
-    .button--cocoa:hover { background: var(--red); }
-    .button--line { border-color: currentColor; color: var(--cocoa); }
-    .button--line:hover { background: var(--cream); }
-    .button--light { border-color: rgba(255,255,255,.6); color: #fff; }
-    .button--light:hover { border-color: #fff; background: rgba(255,255,255,.12); }
-    .button--cream { background: var(--cream); color: var(--cocoa); }
-    .button--cream:hover { background: var(--mint); }
-    .button svg { width: 17px; height: 17px; flex: none; }
 
-    .site-header { position: sticky; z-index: 100; top: 0; height: var(--header); border-bottom: 1px solid var(--line); background: rgba(252,245,231,.95); backdrop-filter: blur(13px); }
-    .header-row { display: flex; height: 100%; align-items: center; justify-content: space-between; gap: 15px; }
-    .brand { display: inline-flex; align-items: center; min-width: 0; gap: 10px; color: var(--cocoa); }
-    .brand-block { display: grid; width: 40px; height: 40px; place-items: center; border: 1px solid var(--cocoa); background: var(--cream); box-shadow: 4px 4px 0 var(--mint); font-family: var(--display); font-size: 1.6rem; line-height: 1; }
-    .brand-name { display: block; font-family: var(--display); font-size: 1.24rem; letter-spacing: -.025em; line-height: .95; }
-    .brand-place { display: block; margin-top: 4px; color: var(--soft-ink); font-size: .55rem; font-weight: 800; letter-spacing: .12em; line-height: 1; text-transform: uppercase; }
-    .desktop-nav { display: none; }
-    .header-actions { display: flex; align-items: center; gap: 9px; }
-    .header-call { display: none; color: var(--cocoa); font-size: .72rem; font-weight: 800; }
-    .menu-button { display: grid; width: 43px; height: 43px; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--cocoa); cursor: pointer; }
-    .menu-lines, .menu-lines::before, .menu-lines::after { display: block; width: 18px; height: 1.5px; background: currentColor; content: ""; transition: transform .2s ease; }
-    .menu-lines { position: relative; }
-    .menu-lines::before { position: absolute; top: -6px; left: 0; }
-    .menu-lines::after { position: absolute; top: 6px; left: 0; }
-    .menu-button[aria-expanded="true"] .menu-lines { background: transparent; }
-    .menu-button[aria-expanded="true"] .menu-lines::before { top: 0; transform: rotate(45deg); }
-    .menu-button[aria-expanded="true"] .menu-lines::after { top: 0; transform: rotate(-45deg); }
-    .mobile-menu { position: fixed; z-index: 90; inset: var(--header) 0 auto; display: grid; align-content: space-between; gap: 30px; min-height: calc(100dvh - var(--header)); padding: 35px max(20px, calc((100vw - var(--width)) / 2)); transform: translateX(100%); background: var(--cocoa); color: #fff; transition: transform .27s ease; }
-    .mobile-menu[data-open="true"] { transform: translateX(0); }
-    .mobile-menu p { margin: 0; color: rgba(255,255,255,.66); font-size: .65rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    .mobile-menu__links { display: grid; gap: 4px; }
-    .mobile-menu__links a { padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,.19); font-family: var(--display); font-size: 2.12rem; line-height: 1; }
-    .mobile-menu__actions { display: grid; gap: 10px; }
-
-    .hero { position: relative; isolation: isolate; overflow: hidden; min-height: min(820px, calc(100svh - var(--header) + 44px)); background: #3c1714; color: #fff; }
-    .hero::before { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(54,18,14,.96) 0%, rgba(63,21,17,.88) 39%, rgba(74,27,21,.47) 66%, rgba(49,15,14,.16) 100%); content: ""; pointer-events: none; }
-    .hero::after { position: absolute; z-index: 2; inset: 0; background: linear-gradient(180deg, rgba(252,245,231,.08), transparent 18%, rgba(28,8,8,.48) 100%), radial-gradient(ellipse at 72% 48%, transparent 5%, rgba(23,6,7,.1) 46%, rgba(23,6,7,.63) 100%); content: ""; pointer-events: none; }
-    .package-visual { position: absolute; z-index: 0; inset: -7%; overflow: hidden; perspective: 1700px; background: #3c1714; will-change: transform; }
-    .package-visual__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 69% center; transform: scale(1.06); filter: saturate(1.06) contrast(1.04); will-change: transform; }
-    .package-visual__grid { position: absolute; inset: 0; opacity: .32; background-image: linear-gradient(90deg, rgba(252,245,231,.13) 1px, transparent 1px), linear-gradient(rgba(252,245,231,.13) 1px, transparent 1px); background-size: 54px 54px; mask-image: linear-gradient(90deg, #000, transparent 84%); mix-blend-mode: soft-light; }
-    .package-visual__tone { position: absolute; inset: 0; background: linear-gradient(118deg, rgba(168,214,194,.18), transparent 35% 64%, rgba(187,62,50,.18)), radial-gradient(ellipse at 73% 76%, rgba(252,245,231,.2), transparent 47%); mix-blend-mode: screen; }
-    .package-stage { position: absolute; z-index: 3; top: 50%; right: max(-5vw, -72px); width: min(54vw, 760px); height: min(58vw, 705px); transform: translateY(-50%); transform-style: preserve-3d; pointer-events: none; will-change: transform; }
-    .package-stage__form { position: absolute; display: block; border: 1px solid rgba(252,245,231,.36); transform-style: preserve-3d; box-shadow: inset 0 0 52px rgba(252,245,231,.1), 0 28px 62px rgba(18,5,5,.29); will-change: transform, opacity; }
-    .package-stage__form--shadow { inset: 29% 7% 14% 11%; transform: rotate(-19deg) rotateY(-17deg) translateZ(-46px); background: linear-gradient(145deg, rgba(35,9,9,.58), rgba(187,62,50,.17)); box-shadow: 24px 34px 66px rgba(18,3,4,.48); }
-    .package-stage__form--lid { inset: 14% 14% 23% 17%; transform: rotate(17deg) rotateY(19deg) translateZ(20px); background: linear-gradient(135deg, rgba(168,214,194,.66), rgba(252,245,231,.24) 48%, rgba(187,62,50,.28)); box-shadow: inset 15px 14px 37px rgba(255,255,255,.28), inset -18px -18px 44px rgba(41,28,24,.25), 0 32px 58px rgba(16,4,4,.34); }
-    .package-stage__form--ribbon { inset: 9% 40% 16% 43%; transform: rotate(17deg) rotateY(19deg) translateZ(86px); border-color: rgba(252,245,231,.42); background: linear-gradient(90deg, rgba(187,62,50,.94), rgba(246,211,156,.58) 50%, rgba(187,62,50,.78)); box-shadow: inset 7px 0 13px rgba(255,255,255,.16), 0 0 24px rgba(187,62,50,.31); }
-    .package-stage__seal { position: absolute; z-index: 2; top: 30%; left: 37%; width: 23%; aspect-ratio: 1; border: 1px solid rgba(252,245,231,.62); border-radius: 50%; background: radial-gradient(circle at 35% 30%, rgba(255,255,255,.7), rgba(252,245,231,.25) 32%, rgba(168,214,194,.58) 72%, rgba(90,36,28,.55)); box-shadow: inset 9px 10px 20px rgba(255,255,255,.25), inset -12px -13px 29px rgba(41,28,24,.23), 0 0 0 11px rgba(252,245,231,.035), 0 22px 45px rgba(13,3,3,.4); transform: rotate(17deg) rotateY(19deg) translateZ(158px); will-change: transform, opacity; }
-    .package-stage__crease { position: absolute; top: 16%; right: 4%; width: 69%; height: 69%; border: 1px solid rgba(252,245,231,.39); border-left-color: transparent; border-radius: 50%; transform: rotate(-36deg) translateZ(128px); box-shadow: 0 0 0 25px rgba(252,245,231,.03), 0 0 0 51px rgba(168,214,194,.025); will-change: transform; }
-    .package-stage__dot { position: absolute; z-index: 3; width: 10px; height: 10px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 0 9px rgba(168,214,194,.12), 0 0 36px 8px rgba(168,214,194,.36); transform: translateZ(190px); will-change: transform, opacity; }
-    .package-stage__dot--one { top: 13%; left: 25%; }
-    .package-stage__dot--two { right: 16%; bottom: 16%; width: 6px; height: 6px; opacity: .82; }
-    .hero-layout { position: relative; z-index: 5; display: grid; min-height: inherit; align-content: center; padding: 76px 0 96px; }
-    .hero-kicker { display: inline-flex; align-items: center; gap: 9px; margin-bottom: 23px; color: #f3d7a5; font-size: .67rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .hero-kicker::before { width: 9px; height: 9px; background: var(--mint); content: ""; }
-    .hero h1 { max-width: 850px; margin: 0; font-family: var(--display); font-size: clamp(3.55rem,10vw,8rem); font-weight: 400; letter-spacing: -.065em; line-height: .8; text-shadow: 0 8px 32px rgba(18,3,4,.2); }
-    .hero h1 em { display: block; margin: .18em 0 0 .1em; color: #f3d7a5; font-style: italic; }
-    .hero p { max-width: 540px; margin: 32px 0 0; color: rgba(255,255,255,.8); font-size: .98rem; }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 31px; }
-    .hero-note { display: flex; gap: 9px; max-width: 480px; margin-top: 24px; color: rgba(255,255,255,.65); font-size: .73rem; }
-    .hero-note::before { width: 18px; height: 1px; flex: none; margin-top: .68em; background: var(--mint); content: ""; }
-    @media (max-width: 760px) {
-      .hero { min-height: min(805px, calc(100svh - var(--header) + 74px)); }
-      .hero::before { background: linear-gradient(180deg, rgba(54,18,14,.64) 0%, rgba(54,18,14,.73) 51%, rgba(54,18,14,.96) 93%), linear-gradient(90deg, rgba(54,18,14,.72), transparent); }
-      .package-visual { inset: 0 -40% -5% -12%; }
-      .package-visual__image { object-position: 69% center; transform: scale(1.1); }
-      .package-stage { top: 43%; right: -33%; width: 123vw; height: 112vw; opacity: .88; }
-      .hero-layout { align-content: end; padding: 115px 0 54px; }
-      .hero h1 { font-size: clamp(3.35rem, 16.3vw, 5.35rem); }
-      .hero p { margin-top: 24px; font-size: .94rem; line-height: 1.58; }
-      .hero-actions { margin-top: 27px; }
-      .hero-note { margin-top: 22px; }
-    }
-    .label-card { position: absolute; z-index: 6; right: 0; bottom: 48px; display: none; width: 234px; padding: 20px; transform: rotate(-5deg); border: 1px solid rgba(41,28,24,.16); background: var(--butter); color: var(--cocoa); box-shadow: var(--shadow); }
-    .label-card::before { position: absolute; top: 11px; right: 11px; bottom: 11px; left: 11px; border: 1px solid rgba(90,36,28,.28); content: ""; }
-    .label-card > * { position: relative; z-index: 1; }
-    .label-card span { display: block; font-size: .58rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .label-card strong { display: block; margin: 9px 0 12px; font-family: var(--display); font-size: 1.85rem; font-weight: 400; letter-spacing: -.04em; line-height: .95; }
-    .label-card small { display: block; color: var(--soft-ink); font-size: .67rem; font-weight: 700; line-height: 1.45; }
-
-    .label-strip { height: 19px; background: repeating-linear-gradient(90deg,var(--butter) 0 11px,transparent 11px 15px), var(--red); }
-    .intro { padding: 92px 0; }
-    .intro-grid { display: grid; gap: 42px; }
-    .box-art { position: relative; min-height: 360px; overflow: hidden; background: var(--mint); box-shadow: var(--shadow); }
-    .box-art::before { position: absolute; inset: 15px; border: 1px solid rgba(90,36,28,.32); content: ""; }
-    .box-art::after { position: absolute; inset: 0; opacity: .52; background-image: linear-gradient(90deg, rgba(90,36,28,.12) 1px, transparent 1px), linear-gradient(rgba(90,36,28,.12) 1px, transparent 1px); background-size: 31px 31px; content: ""; }
-    .box-art__copy { position: absolute; z-index: 1; right: 31px; bottom: 30px; left: 31px; }
-    .box-art__copy span { display: block; color: var(--cocoa); font-size: .62rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-    .box-art__copy strong { display: block; max-width: 410px; margin-top: 8px; color: var(--cocoa); font-family: var(--display); font-size: clamp(2.5rem,7vw,4.6rem); font-weight: 400; letter-spacing: -.06em; line-height: .86; }
-    .box-art__stamp { position: absolute; z-index: 2; top: 29px; right: 31px; display: grid; width: 110px; height: 110px; place-content: center; transform: rotate(8deg); border: 2px solid var(--red); border-radius: 50%; color: var(--red); font-size: .59rem; font-weight: 800; letter-spacing: .1em; line-height: 1.35; text-align: center; text-transform: uppercase; }
-    .intro-copy { display: grid; align-content: center; }
-    .intro-copy .heading { color: var(--cocoa); }
-    .details { display: grid; margin: 29px 0 0; border-top: 1px solid var(--line); }
-    .details div { display: grid; grid-template-columns: 95px 1fr; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--line); }
-    .details dt { color: var(--cocoa); font-size: .65rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .details dd { margin: 0; color: var(--soft-ink); font-size: .83rem; }
-    .details a { color: var(--cocoa); font-weight: 800; text-decoration: underline; text-decoration-color: var(--red); text-underline-offset: 3px; }
-
-    .menu-section { padding: 91px 0; background: var(--cream); }
-    .heading-row { display: grid; gap: 25px; align-items: end; }
-    .heading-row .heading { color: var(--cocoa); }
-    .heading-row__actions { display: flex; flex-wrap: wrap; gap: 10px; }
-    .category-grid { display: grid; gap: 12px; margin-top: 43px; }
-    .category-card { position: relative; min-height: 185px; overflow: hidden; padding: 23px; border: 1px solid var(--line); background: var(--butter); transition: transform .2s ease, box-shadow .2s ease; }
-    .category-card:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(73,40,27,.1); }
-    .category-card::after { position: absolute; right: -31px; bottom: -38px; width: 132px; height: 132px; border: 1px solid rgba(90,36,28,.22); border-radius: 50%; content: ""; }
-    .category-card:nth-child(2) { background: #f1ddd1; }
-    .category-card:nth-child(3) { background: #e6f1eb; }
-    .category-card:nth-child(4) { background: #f2e6c8; }
-    .category-card span, .category-card h3, .category-card p { position: relative; z-index: 1; }
-    .category-card span { display: block; color: var(--red); font-size: .61rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-    .category-card h3 { margin: 17px 0 9px; color: var(--cocoa); font-family: var(--display); font-size: 2rem; font-weight: 400; letter-spacing: -.04em; line-height: .95; }
-    .category-card p { max-width: 230px; margin: 0; color: var(--soft-ink); font-size: .76rem; line-height: 1.45; }
-    .live-menu-note { display: grid; gap: 17px; margin-top: 29px; padding: 24px; border-left: 5px solid var(--red); background: var(--cocoa); color: #fff; }
-    .live-menu-note p { max-width: 700px; margin: 0; color: rgba(255,255,255,.76); font-size: .84rem; }
-
-    .cake-section { padding: 93px 0; background: var(--butter); }
-    .cake-panel { display: grid; gap: 28px; overflow: hidden; border: 1px solid var(--line); background: var(--cream); box-shadow: var(--shadow); }
-    .cake-copy { padding: clamp(28px,6vw,65px); }
-    .cake-copy .heading { color: var(--cocoa); }
-    .cake-copy .lede { max-width: 545px; }
-    .cake-copy .button { margin-top: 26px; }
-    .cake-art { position: relative; min-height: 260px; overflow: hidden; background: var(--red); }
-    .cake-art::before { position: absolute; inset: 0; opacity: .38; background-image: radial-gradient(circle at 1px 1px, #fff 1px, transparent 1.5px); background-size: 16px 16px; content: ""; }
-    .cake-art::after { position: absolute; top: 50%; left: 50%; width: 200px; height: 200px; transform: translate(-50%,-50%); border: 19px solid var(--butter); border-radius: 50%; box-shadow: 0 0 0 17px rgba(90,36,28,.27), 0 0 0 34px rgba(255,255,255,.16); content: ""; }
-    .cake-art span { position: absolute; z-index: 1; top: 50%; left: 50%; transform: translate(-50%,-50%); color: var(--cocoa); font-family: var(--display); font-size: 2rem; letter-spacing: -.04em; white-space: nowrap; }
-
-    .visit { padding: 92px 0; background: var(--cocoa); color: #fff; }
-    .visit-grid { display: grid; gap: 36px; align-items: end; }
-    .visit .eyebrow { color: var(--mint); }
-    .visit .heading { color: #fff; }
-    .visit .lede { color: rgba(255,255,255,.72); }
-    .visit-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
-    .visit-list { display: grid; border-top: 1px solid rgba(255,255,255,.22); }
-    .visit-list div { display: grid; grid-template-columns: 94px 1fr; gap: 15px; padding: 19px 0; border-bottom: 1px solid rgba(255,255,255,.22); }
-    .visit-list dt { color: var(--mint); font-size: .62rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
-    .visit-list dd { margin: 0; color: rgba(255,255,255,.85); font-size: .87rem; }
-    .visit-list a { text-decoration: underline; text-decoration-color: var(--mint); text-decoration-thickness: 1px; text-underline-offset: 4px; }
-
-    .footer { padding: 37px 0 calc(94px + env(safe-area-inset-bottom)); background: #402019; color: #fff; }
-    .footer-row { display: grid; gap: 20px; }
-    .footer-brand { font-family: var(--display); font-size: 1.48rem; letter-spacing: -.03em; }
-    .footer p { margin: 4px 0 0; color: rgba(255,255,255,.62); font-size: .72rem; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 18px; }
-    .footer-links a { color: var(--mint); font-size: .71rem; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
-    .mobile-dock { position: fixed; z-index: 80; right: 0; bottom: 0; left: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 9px 12px calc(9px + env(safe-area-inset-bottom)); border-top: 1px solid rgba(255,255,255,.18); background: rgba(64,32,25,.96); backdrop-filter: blur(12px); }
-    .mobile-dock .button { min-height: 50px; padding-inline: 9px; font-size: .7rem; }
-
-    @media (min-width: 680px) {
-      .wrap { width: min(var(--width), calc(100% - 64px)); }
-      .intro-grid { grid-template-columns: minmax(0,.93fr) minmax(0,1fr); align-items: stretch; }
-      .box-art { min-height: 510px; }
-      .heading-row { grid-template-columns: 1fr auto; }
-      .heading-row__actions { justify-content: end; }
-      .category-grid { grid-template-columns: repeat(2,1fr); }
-      .live-menu-note { grid-template-columns: 1fr auto; align-items: center; }
-      .cake-panel { grid-template-columns: minmax(0,1.16fr) minmax(300px,.84fr); align-items: stretch; }
-      .cake-art { min-height: 100%; }
-      .visit-grid { grid-template-columns: minmax(0,1fr) minmax(360px,.86fr); }
-      .footer-row { grid-template-columns: 1fr auto; align-items: end; }
-      .footer { padding-bottom: 37px; }
-      .mobile-dock { display: none; }
-    }
-    @media (min-width: 920px) {
-      .desktop-nav { display: flex; align-items: center; gap: 23px; }
-      .desktop-nav a { position: relative; color: var(--soft-ink); font-size: .71rem; font-weight: 800; }
-      .desktop-nav a::after { position: absolute; right: 0; bottom: -7px; left: 0; height: 1px; transform: scaleX(0); transform-origin: left; background: var(--red); content: ""; transition: transform .2s ease; }
-      .desktop-nav a:hover, .desktop-nav a:focus-visible { color: var(--cocoa); }
-      .desktop-nav a:hover::after, .desktop-nav a:focus-visible::after { transform: scaleX(1); }
-      .header-call { display: inline-flex; }
-      .menu-button, .mobile-menu { display: none; }
-      .label-card { display: block; }
-    }
-    @media (prefers-reduced-motion: reduce) { *,*::before,*::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; } }
-  </style>
+<style>
+:root{--cream:#fdf8f0;--pastel-pink:#fce4ec;--pastel-mint:#e0f2f1;--pastel-lav:#e8eaf6;--soft-brown:#8d6e63;--dark:#5d4037;--uber-green:#06C167}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:var(--cream);color:var(--dark);line-height:1.6}
+header{background:linear-gradient(135deg,var(--cream) 0%,var(--pastel-pink) 100%);padding:4rem 2rem;text-align:center}
+header h1{font-size:3rem;margin-bottom:1rem;color:var(--dark);font-weight:400;letter-spacing:.05em}
+header p{font-size:1.2rem;margin-bottom:2rem;color:var(--soft-brown)}
+.btn{display:inline-block;padding:.8rem 2rem;border:none;border-radius:50px;background:var(--pastel-pink);color:var(--dark);text-decoration:none;font-size:1rem;font-weight:600;transition:.3s;cursor:pointer;margin:.5rem}
+.btn:hover{background:var(--pastel-mint);transform:translateY(-2px)}
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+section{padding:3rem 0}
+section h2{font-size:2.2rem;margin-bottom:2rem;color:var(--dark);text-align:center;position:relative}
+section h2:after{content:'';display:block;width:80px;height:4px;background:var(--pastel-pink);margin:1rem auto;border-radius:2px}
+.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;max-width:800px;margin:0 auto}
+.form-group{display:flex;flex-direction:column}
+.form-group label{margin-bottom:.5rem;font-weight:600;color:var(--soft-brown)}
+.form-group input,.form-group select{padding:.8rem;border:2px solid var(--pastel-lav);border-radius:8px;font-size:1rem;background:white;transition:.3s}
+.form-group input:focus,.form-group select:focus{border-color:var(--pastel-pink);outline:none}
+.file-upload{padding:1.5rem;border:2px dashed var(--pastel-lav);border-radius:8px;text-align:center;cursor:pointer;transition:.3s}
+.file-upload:hover{border-color:var(--pastel-pink);background:var(--pastel-mint)}
+.file-upload input{display:none}
+.gallery-filters{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
+.gallery-filters button{padding:.5rem 1.2rem;border:none;background:var(--pastel-lav);color:var(--dark);border-radius:50px;cursor:pointer;transition:.3s;font-weight:600}
+.gallery-filters button.active,.gallery-filters button:hover{background:var(--pastel-pink)}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
+.gallery-item{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:.3s}
+.gallery-item:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.img-placeholder{width:100%;height:220px;background:var(--pastel-lav);display:flex;align-items:center;justify-content:center;color:var(--soft-brown);font-style:italic;text-align:center;padding:1rem;border-bottom:2px dashed var(--pastel-pink)}
+.gallery-item h3{padding:1rem;font-size:1.1rem;color:var(--dark);text-align:center}
+.menu-section{background:var(--pastel-mint);padding:3rem 0}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
+.menu-card{background:white;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
+.menu-card h3{margin-bottom:1rem;color:var(--dark);font-size:1.3rem}
+.menu-card ul{list-style:none}.menu-card li{margin-bottom:.5rem;padding:.5rem 0;border-bottom:1px solid var(--pastel-lav)}
+.menu-card li:last-child{border-bottom:none}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;max-width:800px;margin:0 auto}
+.contact-card{background:white;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);text-align:center}
+.contact-card h3{margin-bottom:1rem;color:var(--dark)}
+.contact-card p{margin-bottom:.5rem;color:var(--soft-brown)}
+.call-btn{background:var(--pastel-mint)}
+.map-container{height:300px;border-radius:12px;overflow:hidden;background:var(--pastel-lav)}
+.delivery{background:var(--pastel-mint);padding:2.5rem 2rem;text-align:center}
+.delivery h2{font-size:1.8rem;margin-bottom:.5rem}
+.delivery h2:after{display:none}
+.delivery p{color:var(--soft-brown);margin-bottom:1.5rem}
+.btn-uber{background:var(--uber-green);color:#fff;box-shadow:0 4px 12px rgba(6,193,103,.35)}
+.btn-uber:hover{background:#05a659;color:#fff}
+.fab{display:none;position:fixed;right:1.2rem;bottom:1.2rem;z-index:999;align-items:center;gap:.5rem;padding:.9rem 1.3rem;border-radius:50px;background:var(--uber-green);color:#fff;text-decoration:none;font-family:'Georgia',serif;font-weight:600;font-size:1rem;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:.3s}
+.fab:hover,.fab:focus{background:#05a659;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+footer{background:var(--soft-brown);color:white;text-align:center;padding:2rem;margin-top:3rem}
+footer p{margin:.5rem 0}
+@media (max-width:768px){header h1{font-size:2rem}header p{font-size:1rem}.form-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.fab{display:inline-flex}body{padding-bottom:4.5rem}}
+</style>
 </head>
 <body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-  <header class="site-header">
-    <div class="wrap header-row">
-      <a class="brand" href="#top" aria-label="Morris Park Bake Shop home">
-        <!-- ASSET: Replace the abstract block mark with assets/logo/morris-park-bake-shop-logo.svg only when an approved clean logo is supplied. -->
-        <span class="brand-block" aria-hidden="true">M</span>
-        <span><span class="brand-name">Morris Park</span><span class="brand-place">Bake Shop · Bronx</span></span>
-      </a>
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#menu">Live menu</a><a href="#cakes">Cake questions</a><a href="#visit">Visit</a>
-      </nav>
-      <div class="header-actions">
-        <a class="header-call" href="tel:+17188924968">(718) 892-4968</a>
-        <a class="button button--red" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order</a>
-        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu"><span class="menu-lines" aria-hidden="true"></span></button>
-      </div>
-    </div>
-  </header>
+<header>
+<h1>Morris Park Bake Shop</h1>
+<p>Handcrafted Custom Cakes & Classic Italian Pastries Since 1980</p>
+<a href="#form" class="btn">Request Custom Cake Quote</a>
+<a href="#gallery" class="btn">Browse Gallery</a>
+</header>
 
-  <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" data-open="false">
-    <p>Morris Park Bake Shop</p>
-    <div class="mobile-menu__links"><a href="#menu">Live menu</a><a href="#cakes">Cake questions</a><a href="#visit">Visit</a></div>
-    <div class="mobile-menu__actions">
-      <a class="button button--cream" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a>
-      <a class="button button--light" href="tel:+17188924968">Call (718) 892-4968</a>
-    </div>
-  </nav>
+<section class="delivery">
+<h2>Order Delivery</h2>
+<p>Fresh pastries and cakes delivered straight to your door.</p>
+<a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer" class="btn btn-uber">Order Delivery on Uber Eats</a>
+</section>
 
-  <main id="main-content">
-    <section class="hero" id="top" aria-labelledby="hero-heading">
-      <!-- Local abstract package-world material in ./assets/visuals/hero-package-world.svg is non-documentary art direction only. It does not depict the storefront, food, people, inventory, menu, or actual packaging of Morris Park Bake Shop. -->
-      <div class="package-visual" data-package-visual aria-hidden="true">
-        <img class="package-visual__image" data-package-image src="./assets/visuals/hero-package-world.svg" width="1536" height="1024" alt="">
-        <span class="package-visual__grid"></span>
-        <span class="package-visual__tone"></span>
-      </div>
-      <div class="package-stage" data-package-stage aria-hidden="true">
-        <span class="package-stage__form package-stage__form--shadow" data-package-form="shadow"></span>
-        <span class="package-stage__form package-stage__form--lid" data-package-form="lid"></span>
-        <span class="package-stage__form package-stage__form--ribbon" data-package-form="ribbon"></span>
-        <span class="package-stage__seal" data-package-seal></span>
-        <span class="package-stage__crease" data-package-crease></span>
-        <span class="package-stage__dot package-stage__dot--one" data-package-dot="one"></span>
-        <span class="package-stage__dot package-stage__dot--two" data-package-dot="two"></span>
-      </div>
-      <div class="wrap hero-layout">
-        <div class="hero-kicker">1007 Morris Park Avenue · Bronx</div>
-        <h1 id="hero-heading">A neighborhood<br><em>bake shop, boxed up.</em></h1>
-        <p>Open the live menu for current delivery or pickup options, call the shop for questions, or stop by on Morris Park Avenue.</p>
-        <div class="hero-actions">
-          <a class="button button--cream" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M5 8.5 12 4l7 4.5v8L12 21l-7-4.5v-8Z"/><path d="m5 8.5 7 4.5 7-4.5M12 13v8"/></svg>
-            Order on Uber Eats
-          </a>
-          <a class="button button--light" href="tel:+17188924968">
-            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M4.8 3.8h3.1l1.3 4.1-2 1.7a15.9 15.9 0 0 0 7.1 7.1l1.7-2 4.1 1.3v3.1c0 .9-.7 1.6-1.6 1.6C10.5 20.7 3.3 13.5 3.3 5.4c0-.9.7-1.6 1.5-1.6Z"/></svg>
-            Call the shop
-          </a>
-        </div>
-        <div class="hero-note">For delivery or pickup, open the live Uber Eats menu.</div>
-      </div>
-      <aside class="label-card" aria-label="Morris Park Bake Shop location">
-        <span>Bronx, NY</span><strong>Morris Park<br>Bake Shop</strong><small>1007 Morris Park Avenue<br>Call (718) 892-4968</small>
-      </aside>
-    </section>
-    <div class="label-strip" aria-hidden="true"></div>
+<main class="container">
+<section id="form">
+<h2>Custom Cake Request</h2>
+<form class="form-grid" id="cakeForm">
+<div class="form-group"><label>Event Type</label>
+<select required><option value="">Select...</option><option>Wedding</option><option>Birthday</option><option>Anniversary</option></select></div>
+<div class="form-group"><label>Cake Size</label>
+<select required><option value="">Select...</option><option>6" (Serves 8-10)</option><option>7" (Serves 12-14)</option><option>8" (Serves 16-18)</option><option>10" (Serves 25-30)</option></select></div>
+<div class="form-group"><label>Flavor Choice</label>
+<select required><option value="">Select...</option><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Tiramisu</option><option>Cannoli</option><option>Strawberry Shortcake</option><option>Carrot</option><option>Oreo</option><option>Funfetti</option></select></div>
+<div class="form-group"><label>Delivery Date</label>
+<input type="date" required></div>
+<div class="form-group"><label>Special Requests</label>
+<textarea rows="3" placeholder="Allergies, design notes, etc."></textarea></div>
+<div class="form-group">
+<label>Upload Inspiration Photo</label>
+<label class="file-upload"><input type="file" accept="image/*">Click to Upload</label>
+</div>
+<button type="submit" class="btn" style="grid-column:1/-1;width:auto">Submit Request</button>
+</form>
+</section>
 
-    <section class="intro" aria-labelledby="shop-heading">
-      <div class="wrap intro-grid">
-        <div class="box-art" aria-hidden="true"><div class="box-art__stamp">Bake shop<br>Bronx</div><div class="box-art__copy"><span>Morris Park Avenue</span><strong>Pick it up.<br>Send it out.</strong></div></div>
-        <div class="intro-copy">
-          <p class="eyebrow">The shop</p>
-          <h2 class="heading" id="shop-heading">The local stop, made simple.</h2>
-          <p class="lede">Choose the way you want to connect: open the live menu for delivery or pickup, call the shop, or head over to Morris Park Avenue.</p>
-          <dl class="details">
-            <div><dt>Address</dt><dd>1007 Morris Park Avenue, Bronx, NY 10462</dd></div>
-            <div><dt>Phone</dt><dd><a href="tel:+17188924968">(718) 892-4968</a></dd></div>
-            <div><dt>Order</dt><dd><a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Open the live Uber Eats menu</a></dd></div>
-          </dl>
-        </div>
-      </div>
-    </section>
+<section id="gallery">
+<h2>Our Creations</h2>
+<div class="gallery-filters">
+<button class="active" data-filter="all">All</button>
+<button data-filter="cakes">Custom Cakes</button>
+<button data-filter="pastries">Italian Pastries</button>
+<button data-filter="cookies">Cookies</button>
+<button data-filter="bread">Fresh Bread</button>
+</div>
+<div class="gallery">
+<div class="gallery-item" data-category="cakes"><div class="img-placeholder">Photo coming soon<br>(Wedding Cake)</div><h3>Wedding Cake</h3></div>
+<div class="gallery-item" data-category="pastries"><div class="img-placeholder">Photo coming soon<br>(Tiramisu)</div><h3>Tiramisu</h3></div>
+<div class="gallery-item" data-category="cookies"><div class="img-placeholder">Photo coming soon<br>(Assorted Cookies)</div><h3>Assorted Cookies</h3></div>
+<div class="gallery-item" data-category="bread"><div class="img-placeholder">Photo coming soon<br>(Fresh Bread)</div><h3>Fresh Bread</h3></div>
+<div class="gallery-item" data-category="cakes"><div class="img-placeholder">Photo coming soon<br>(Birthday Cake)</div><h3>Birthday Cake</h3></div>
+<div class="gallery-item" data-category="pastries"><div class="img-placeholder">Photo coming soon<br>(Cannoli)</div><h3>Cannoli</h3></div>
+<div class="gallery-item" data-category="cookies"><div class="img-placeholder">Photo coming soon<br>(Chocolate Chip)</div><h3>Chocolate Chip</h3></div>
+<div class="gallery-item" data-category="bread"><div class="img-placeholder">Photo coming soon<br>(Sourdough)</div><h3>Sourdough</h3></div>
+</div>
+</section>
 
-    <section class="menu-section" id="menu" aria-labelledby="menu-heading">
-      <div class="wrap">
-        <div class="heading-row">
-          <div><p class="eyebrow">Live menu</p><h2 class="heading" id="menu-heading">See today’s menu where it is kept current.</h2></div>
-          <div class="heading-row__actions"><a class="button button--line" href="tel:+17188924968">Call first</a><a class="button button--red" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Open live menu</a></div>
-        </div>
-        <div class="category-grid" aria-label="Current live menu categories">
-          <article class="category-card"><span>Current menu category</span><h3>Cookies<br>&amp; sweets</h3><p>Open the live menu to browse current selections and prices.</p></article>
-          <article class="category-card"><span>Current menu category</span><h3>Pastries<br>&amp; breakfast</h3><p>Open the live menu to see the latest available choices.</p></article>
-          <article class="category-card"><span>Current menu category</span><h3>Cakes<br>&amp; cheesecakes</h3><p>Browse the current online listing or call the shop with a question.</p></article>
-          <article class="category-card"><span>Current menu category</span><h3>Italian<br>ice</h3><p>Open the live menu for the latest delivery and pickup options.</p></article>
-        </div>
-        <div class="live-menu-note"><p><strong>Ready when you are.</strong> Browse the live menu for the latest selections and available delivery or pickup options.</p><a class="button button--cream" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a></div>
-      </div>
-    </section>
+<section class="menu-section">
+<h2>Our Menu</h2>
+<div class="menu-grid">
+<div class="menu-card"><h3>Cookies & Sweet Bites</h3><ul>
+<li><strong>$4.00</strong> Large Cookies: Chocolate Chip, Rainbow Sprinkles, M&M's, Jelly Sandwich, Linzer Tart, Black & White</li>
+<li><strong>$3.00</strong> Donuts, Buns</li>
+<li><strong>$3.50</strong> Muffins, Cupcakes</li>
+<li><strong>$4.00</strong> Turnovers</li>
+<li><strong>$4.50</strong> Brownies</li>
+</ul></div>
+<div class="menu-card"><h3>Individual Pastries & Tarts</h3><ul>
+<li><strong>$8.50</strong> French Napoleon, Tiramisu, Chocolate Mousse, Lobster Tail, Large Cannoli, Eclair, Fruit Tart, French Custard</li>
+</ul></div>
+<div class="menu-card"><h3>Whole Cakes</h3><ul>
+<li><strong>$35.00</strong> 7" Specialty: Carrot, Strawberry Shortcake, Oreo, Funfetti, Mocha, Dulce De Leche, Red Velvet, Chocolate Mousse, Chocolate Fudge, Shadow, Black Forest, Strawberry Banana</li>
+<li><strong>$40.00</strong> 8" Signature: Italian, Tres Leche, Cannoli, Tiramisu, Fruit</li>
+</ul></div>
+<div class="menu-card"><h3>Cheesecakes & Pies</h3><ul>
+<li><strong>$8.00</strong> Slice of Cheesecake</li>
+<li><strong>$15.00</strong> Apple Horn Pie</li>
+<li><strong>$25.00</strong> 7" Plain or Marble Cheesecake</li>
+<li><strong>$30.00</strong> 7" Strawberries, Chocolate Fudge, Funfetti, Oreo, Red Velvet, Mixed Fresh Fruit Cheesecake</li>
+</ul></div>
+</div>
+</section>
 
-    <section class="cake-section" id="cakes" aria-labelledby="cakes-heading">
-      <div class="wrap cake-panel">
-        <div class="cake-copy">
-          <p class="eyebrow">Cake questions</p>
-          <h2 class="heading" id="cakes-heading">For a custom-cake question, start with a real conversation.</h2>
-          <p class="lede">For a cake question, call the shop directly and start the conversation with the team at the counter.</p>
-          <a class="button button--cocoa" href="tel:+17188924968">Call (718) 892-4968</a>
-        </div>
-        <div class="cake-art" aria-hidden="true"><span>Make it special</span></div>
-      </div>
-    </section>
+<section id="contact">
+<h2>Visit Us</h2>
+<div class="contact-grid">
+<div class="contact-card"><h3>Location</h3><p>1007 Morris Park Ave</p><p>Bronx, NY 10462</p></div>
+<div class="contact-card"><h3>Hours</h3><p>Mon-Fri: 7:00 AM - 7:00 PM</p><p>Sat: 7:00 AM - 6:00 PM</p><p>Sun: 8:00 AM - 4:00 PM</p></div>
+<div class="contact-card"><h3>Contact</h3><p>Phone: 718-892-4968</p><a href="tel:+17188924968" class="btn call-btn">📞 Call Us</a></div>
+<div class="contact-card"><h3>Map</h3>
+<div class="map-container"><iframe src="https://www.google.com/maps/place/Morris+Park+Bake+Shop,+1007+Morris+Park+Ave,+Bronx,+NY+10462,+United+States/@40.8484279,-73.8560396,17z/data=!4m6!3m5!1s0x89c2f4a5af8a6847:0x844797c0023b01aa!8m2!3d40.8484279!4d-73.8560396!16s%2Fg%2F1tflsz04?gl=tg&utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDgwNF8wIJvbDyoASAJQAQ%3D%3D&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe></div>
+</div>
+</div>
+</section>
+</main>
 
-    <section class="visit" id="visit" aria-labelledby="visit-heading">
-      <div class="wrap visit-grid">
-        <div>
-          <p class="eyebrow">Visit the shop</p>
-          <h2 class="heading" id="visit-heading">Find the shop on Morris Park Avenue.</h2>
-          <p class="lede">Get directions to 1007 Morris Park Avenue, call with a question, or open the live ordering page in a new tab.</p>
-          <div class="visit-actions"><a class="button button--cream" href="https://www.google.com/maps/dir/?api=1&amp;destination=1007+Morris+Park+Ave,+Bronx,+NY+10462" target="_blank" rel="noopener noreferrer">Get directions</a><a class="button button--light" href="tel:+17188924968">Call the shop</a></div>
-        </div>
-        <dl class="visit-list">
-          <div><dt>Address</dt><dd><a href="https://www.google.com/maps/search/?api=1&amp;query=1007+Morris+Park+Ave,+Bronx,+NY+10462" target="_blank" rel="noopener noreferrer">1007 Morris Park Avenue<br>Bronx, NY 10462</a></dd></div>
-          <div><dt>Phone</dt><dd><a href="tel:+17188924968">(718) 892-4968</a></dd></div>
-          <div><dt>Order</dt><dd><a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Uber Eats delivery and pickup</a></dd></div>
-        </dl>
-      </div>
-    </section>
-  </main>
+<footer>
+<p><strong>Morris Park Bake Shop</strong></p>
+<p>Handcrafted with love since 1980</p>
+<p>1007 Morris Park Ave, Bronx, NY 10462 | 718-892-4968</p>
+</footer>
 
-  <footer class="footer"><div class="wrap footer-row"><div><div class="footer-brand">Morris Park Bake Shop</div><p>1007 Morris Park Avenue, Bronx, NY 10462 · (718) 892-4968</p></div><div class="footer-links"><a href="tel:+17188924968">Call</a><a href="https://www.google.com/maps/dir/?api=1&amp;destination=1007+Morris+Park+Ave,+Bronx,+NY+10462" target="_blank" rel="noopener noreferrer">Directions</a><a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order</a></div></div></footer>
-  <div class="mobile-dock" aria-label="Quick actions"><a class="button button--light" href="tel:+17188924968">Call</a><a class="button button--cream" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a></div>
+<a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer" class="fab" aria-label="Order delivery on Uber Eats">🛵 Order Delivery</a>
 
-  <script>
-    (() => {
-      const button = document.querySelector('.menu-button');
-      const menu = document.getElementById('mobile-menu');
-      const links = menu.querySelectorAll('a');
-      let returnFocus;
-      const setMenu = (open) => {
-        button.setAttribute('aria-expanded', String(open));
-        button.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
-        menu.dataset.open = String(open);
-        document.body.classList.toggle('menu-open', open);
-        if (open) { returnFocus = document.activeElement; window.setTimeout(() => menu.querySelector('a').focus(), 0); }
-        else if (returnFocus) returnFocus.focus();
-      };
-      button.addEventListener('click', () => setMenu(button.getAttribute('aria-expanded') !== 'true'));
-      links.forEach((link) => link.addEventListener('click', () => setMenu(false)));
-      document.addEventListener('keydown', (event) => { if (event.key === 'Escape' && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
-      window.addEventListener('resize', () => { if (window.innerWidth >= 920 && button.getAttribute('aria-expanded') === 'true') setMenu(false); });
-
-      const initialisePackageMotion = () => {
-        const hero = document.querySelector('.hero');
-        const visual = document.querySelector('[data-package-visual]');
-        const image = document.querySelector('[data-package-image]');
-        const stage = document.querySelector('[data-package-stage]');
-        const forms = Array.from(document.querySelectorAll('[data-package-form]'));
-        const seal = document.querySelector('[data-package-seal]');
-        const crease = document.querySelector('[data-package-crease]');
-        const dots = Array.from(document.querySelectorAll('[data-package-dot]'));
-        if (!hero || !visual || !image || !stage || !window.gsap || !window.ScrollTrigger) return;
-
-        const packageMedia = gsap.matchMedia();
-        packageMedia.add(
-          {
-            isDesktop: '(min-width: 761px)',
-            isMobile: '(max-width: 760px)',
-            reduceMotion: '(prefers-reduced-motion: reduce)'
-          },
-          (context) => {
-            const { isDesktop, reduceMotion } = context.conditions;
-            if (reduceMotion) return;
-
-            gsap.set(image, { scale: isDesktop ? 1.06 : 1.1, transformOrigin: '69% 50%' });
-            gsap.set(stage, { transformPerspective: 1700, transformOrigin: '56% 52%' });
-            gsap.set(forms, { transformOrigin: '50% 50%' });
-
-            const motion = gsap.timeline({
-              defaults: { ease: 'none' },
-              scrollTrigger: {
-                trigger: hero,
-                start: 'top top',
-                end: 'bottom top',
-                scrub: isDesktop ? .75 : .52,
-                invalidateOnRefresh: true
-              }
-            });
-
-            motion
-              .to(image, { scale: isDesktop ? 1.18 : 1.15, xPercent: isDesktop ? -6 : -3, yPercent: isDesktop ? -5 : -2 }, 0)
-              .to(visual, { rotation: isDesktop ? 1.4 : .7, yPercent: isDesktop ? -3 : -1 }, 0)
-              .to(stage, { yPercent: isDesktop ? -59 : -54, rotationY: isDesktop ? 32 : 16, rotationX: isDesktop ? -8 : -4, rotation: isDesktop ? 9 : 4, scale: isDesktop ? 1.12 : 1.03 }, 0)
-              .to(forms[0], { xPercent: -19, yPercent: 20, rotation: -28, rotationY: -30, scale: 1.08 }, 0)
-              .to(forms[1], { xPercent: 16, yPercent: -35, rotation: 30, rotationY: 34, rotationX: -35, scale: 1.06 }, 0)
-              .to(forms[2], { xPercent: 28, yPercent: -35, rotation: 30, rotationY: 34, rotationX: -35, scale: 1.08 }, 0)
-              .to(seal, { xPercent: -78, yPercent: 42, rotation: -37, rotationY: -42, scale: 1.32 }, 0)
-              .to(crease, { rotation: 36, rotationY: -24, scale: 1.14 }, 0)
-              .to(dots[0], { xPercent: 170, yPercent: -155, scale: 1.85, autoAlpha: .72 }, 0)
-              .to(dots[1], { xPercent: -150, yPercent: 130, scale: .5, autoAlpha: 0 }, 0);
-          }
-        );
-      };
-
-      const initialiseMotion = () => {
-        if (!window.gsap || !window.ScrollTrigger) return;
-        gsap.registerPlugin(ScrollTrigger);
-        initialisePackageMotion();
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        gsap.utils.toArray('.category-card').forEach((card, index) => {
-          gsap.to(card, { y: index % 2 ? 14 : -14, rotation: index % 2 ? 1.2 : -1.2, ease: 'none', scrollTrigger: { trigger: '.menu-section', start: 'top bottom', end: 'bottom top', scrub: .7 } });
-        });
-      };
-      window.addEventListener('load', initialiseMotion, { once: true });
-    })();
-  </script>
+<script>
+document.getElementById('cakeForm').addEventListener('submit',function(e){e.preventDefault();alert('Thank you! We will contact you shortly to confirm your custom cake request.')});
+const filters=document.querySelectorAll('.gallery-filters button');const items=document.querySelectorAll('.gallery-item');
+filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));f.classList.add('active');const filter=f.dataset.filter;items.forEach(i=>{if(filter==='all'||i.dataset.category===filter)i.style.display='block';else i.style.display='none'})}))
+</script>
 </body>
 </html>
