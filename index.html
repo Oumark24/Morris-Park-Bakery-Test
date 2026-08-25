@@ -18,9 +18,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="./assets/photos/morris-park-awning-rectangular.webp" type="image/webp" fetchpriority="high">
-  <link rel="preload" as="image" href="./assets/photos/pastry-display-hero.webp" type="image/webp" media="(min-width: 801px)">
-  <link rel="preload" as="image" href="./assets/photos/pastry-display-mobile.webp" type="image/webp" media="(max-width: 800px)">
+  <link rel="preload" as="image" href="./assets/photos/awning-fast.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/photos/pastry-hero-fast.webp" type="image/webp" media="(min-width: 801px)">
+  <link rel="preload" as="image" href="./assets/photos/pastry-hero-mobile-fast.webp" type="image/webp" media="(max-width: 800px)">
   <style>
     :root {
       --wine: #5c211f;
@@ -120,7 +120,7 @@
       background-color: var(--wine-deep);
       background-image:
         linear-gradient(90deg, rgba(55, 9, 14, .14), rgba(97, 22, 30, .02) 50%, rgba(55, 9, 14, .14)),
-        url("./assets/photos/morris-park-awning-rectangular.webp");
+        url("./assets/photos/awning-fast.webp");
       background-position: center;
       background-size: 84% auto;
       background-repeat: no-repeat;
@@ -228,7 +228,7 @@
       background-image:
         linear-gradient(90deg, rgba(14, 17, 30, .91) 0%, rgba(18, 22, 36, .81) 38%, rgba(27, 32, 47, .5) 68%, rgba(28, 32, 48, .63) 100%),
         linear-gradient(180deg, rgba(13, 16, 28, .22), rgba(13, 16, 28, .54)),
-        url("./assets/photos/pastry-display-hero.webp");
+        url("./assets/photos/pastry-hero-fast.webp");
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -319,7 +319,7 @@
     .intro-fact span { color: var(--muted); font-size: .78rem; }
 
     .content-section { width: min(1230px, calc(100% - 48px)); margin: 0 auto; padding: clamp(70px, 9vw, 124px) 0; }
-    .creations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .creations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; content-visibility: auto; contain-intrinsic-size: auto 306px; }
     .creation-card {
       min-height: 306px;
       padding: 25px;
@@ -334,9 +334,9 @@
       overflow: hidden;
     }
     .creation-card::before { content: ""; position: absolute; }
-    .creation-card.cannoli { background-image: linear-gradient(0deg, rgba(31,9,7,.81), rgba(31,9,7,.02) 68%), url("./assets/photos/pastry-case.jpg"); }
-    .creation-card.cakes { background-image: linear-gradient(0deg, rgba(31,9,7,.81), rgba(31,9,7,.02) 68%), url("./assets/photos/cake-display.jpg"); }
-    .creation-card.cookies { background-image: linear-gradient(0deg, rgba(31,9,7,.82), rgba(31,9,7,.03) 70%), url("./assets/photos/pastry-case.jpg"); background-position: right center; }
+    .creation-card.cannoli { background-image: linear-gradient(0deg, rgba(31,9,7,.81), rgba(31,9,7,.02) 68%), url("./assets/photos/pastry-card-fast.webp"); }
+    .creation-card.cakes { background-image: linear-gradient(0deg, rgba(31,9,7,.81), rgba(31,9,7,.02) 68%), url("./assets/photos/cake-card-fast.webp"); }
+    .creation-card.cookies { background-image: linear-gradient(0deg, rgba(31,9,7,.82), rgba(31,9,7,.03) 70%), url("./assets/photos/pastry-card-fast.webp"); background-position: right center; }
     .creation-card .card-label { margin-bottom: 6px; color: var(--butter); font-size: .67rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
     .creation-card h3 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: 2rem; line-height: 1; }
     .creation-card p { margin: 9px 0 0; font-size: .86rem; }
@@ -514,7 +514,7 @@
         background-image:
           linear-gradient(90deg, rgba(14, 17, 30, .91) 0%, rgba(18, 22, 36, .81) 38%, rgba(27, 32, 47, .5) 68%, rgba(28, 32, 48, .63) 100%),
           linear-gradient(180deg, rgba(13, 16, 28, .22), rgba(13, 16, 28, .54)),
-          url("./assets/photos/pastry-display-mobile.webp");
+          url("./assets/photos/pastry-hero-mobile-fast.webp");
       }
       .hero-copy { max-width: 100%; padding: 23px 20px 22px; background: linear-gradient(115deg, rgba(20, 20, 32, .82), rgba(27, 31, 48, .58)); }
       .hero .eyebrow, .hero-note { display: none; }
