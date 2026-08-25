@@ -18,6 +18,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="./assets/photos/morris-park-awning-rectangular.webp" type="image/webp" fetchpriority="high">
+  <link rel="preload" as="image" href="./assets/photos/pastry-display-hero.webp" type="image/webp">
   <style>
     :root {
       --wine: #5c211f;
@@ -104,7 +106,7 @@
       align-items: center;
       justify-content: flex-end;
       width: 100%;
-      min-height: clamp(150px, 21vw, 300px);
+      min-height: clamp(150px, 26vw, 350px);
       margin: 0 auto;
       isolation: isolate;
     }
@@ -116,10 +118,10 @@
       color: transparent;
       background-color: var(--wine-deep);
       background-image:
-        linear-gradient(90deg, rgba(55, 9, 14, .08), rgba(97, 22, 30, .02) 50%, rgba(55, 9, 14, .08)),
-        url("./assets/photos/morris-park-awning-clean.png");
-      background-position: center 42%;
-      background-size: cover;
+        linear-gradient(90deg, rgba(55, 9, 14, .14), rgba(97, 22, 30, .02) 50%, rgba(55, 9, 14, .14)),
+        url("./assets/photos/morris-park-awning-rectangular.webp");
+      background-position: center;
+      background-size: 84% auto;
       background-repeat: no-repeat;
       filter: saturate(1.03) contrast(1.03);
     }
@@ -212,31 +214,55 @@
 
     main { overflow: hidden; }
     .hero {
+      position: relative;
       display: grid;
-      grid-template-columns: minmax(0, .94fr) minmax(460px, 1.06fr);
-      gap: clamp(36px, 7vw, 105px);
+      grid-template-columns: minmax(0, 1fr);
       align-items: center;
-      width: min(1230px, calc(100% - 48px));
-      min-height: min(700px, calc(100vh - 112px));
-      margin: 0 auto;
-      padding: clamp(58px, 9vw, 120px) 0;
+      width: 100%;
+      min-height: min(690px, calc(100vh - 112px));
+      margin: 0;
+      padding: clamp(50px, 7vw, 100px) max(24px, calc((100vw - 1230px) / 2));
+      color: var(--cream);
+      background-color: #202635;
+      background-image:
+        linear-gradient(90deg, rgba(14, 17, 30, .91) 0%, rgba(18, 22, 36, .81) 38%, rgba(27, 32, 47, .5) 68%, rgba(28, 32, 48, .63) 100%),
+        linear-gradient(180deg, rgba(13, 16, 28, .22), rgba(13, 16, 28, .54)),
+        url("./assets/photos/pastry-display-hero.webp");
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
     }
-    .hero-copy { max-width: 560px; }
+    .hero-copy {
+      max-width: 610px;
+      padding: clamp(28px, 4vw, 54px);
+      background: linear-gradient(115deg, rgba(20, 20, 32, .75), rgba(27, 31, 48, .48));
+      border: 1px solid rgba(255, 239, 205, .2);
+      border-left: 3px solid #e4bd75;
+      box-shadow: 0 21px 48px rgba(6, 7, 14, .25);
+      backdrop-filter: blur(3px);
+    }
+    .hero .eyebrow { color: #f0cf91; }
     .hero h1 {
       max-width: 630px;
       margin: 0;
+      color: #fffaf1;
       font-family: "Playfair Display", Georgia, serif;
       font-size: clamp(3.1rem, 6.1vw, 5.85rem);
       line-height: .93;
       letter-spacing: -.07em;
+      text-shadow: 0 3px 18px rgba(0, 0, 0, .28);
     }
     .hero-copy > p:not(.eyebrow) {
       max-width: 510px;
-      margin: 24px 0 29px;
-      color: var(--muted);
+      margin: 21px 0 27px;
+      color: rgba(255, 250, 241, .86);
       font-size: clamp(1rem, 1.4vw, 1.16rem);
     }
     .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero .button-primary { color: #20151a; background: #f0cf91; border-color: #f0cf91; }
+    .hero .button-primary:hover { color: #fffaf1; background: var(--terracotta); border-color: var(--terracotta); }
+    .hero .button-secondary { color: #fffaf1; border-color: rgba(255, 250, 241, .72); background: rgba(255, 255, 255, .07); }
+    .hero .button-secondary:hover { color: #20151a; background: #fffaf1; border-color: #fffaf1; }
     .button-primary, .button-secondary, .button-quiet, .modal-submit {
       display: inline-flex;
       align-items: center;
@@ -256,13 +282,8 @@
     .button-secondary:hover { color: var(--white); background: var(--wine); transform: translateY(-2px); }
     .button-quiet { color: var(--wine); background: var(--butter); border: 1px solid var(--butter); }
     .button-quiet:hover { transform: translateY(-2px); background: #f0d8aa; }
-    .hero-note { margin: 18px 0 0; color: var(--muted); font-size: .77rem; }
-    .hero-visuals {
-      display: grid;
-      grid-template-columns: 1.03fr .97fr;
-      grid-template-rows: 190px 175px 130px;
-      gap: 14px;
-    }
+    .hero-note { margin: 18px 0 0; color: rgba(255, 250, 241, .68); font-size: .77rem; }
+    .hero-visuals { display: none; }
     .hero-photo, .hero-story {
       position: relative;
       overflow: hidden;
@@ -457,23 +478,30 @@
     .mobile-fab-call { color: var(--wine); border: 1px solid var(--wine); }
 
     @media (max-width: 1120px) {
-      .hero { grid-template-columns: minmax(0, .9fr) minmax(380px, 1.1fr); }
-      .hero-visuals { grid-template-rows: 180px 165px 125px; }
+      .hero { min-height: 570px; }
     }
     @media (max-width: 800px) {
-      .header-bar { min-height: clamp(118px, 32vw, 220px); }
-      .header-awning { background-position: center 42%; }
-      .header-actions { padding-right: 16px; }
-      .menu-toggle { width: 48px; height: 48px; }
-      .hero { grid-template-columns: 1fr; width: min(100% - 36px, 600px); min-height: auto; padding: 64px 0 70px; }
-      .hero-copy { max-width: 590px; }
-      .hero h1 { font-size: clamp(3.2rem, 13vw, 5.2rem); }
-      .hero-visuals { grid-template-rows: 185px 155px 112px; }
+      .header-bar { min-height: clamp(100px, 28vw, 145px); }
+      .header-awning { background-position: center; background-size: 82% auto; }
+      .header-actions { padding-right: 14px; }
+      .menu-toggle { width: 46px; height: 46px; }
+      .hero {
+        min-height: min(480px, calc(100svh - 112px));
+        padding: 24px 16px 29px;
+        background-position: center;
+      }
+      .hero-copy { max-width: 100%; padding: 23px 20px 22px; background: linear-gradient(115deg, rgba(20, 20, 32, .82), rgba(27, 31, 48, .58)); }
+      .hero .eyebrow, .hero-note, .hero-buttons .button-primary { display: none; }
+      .hero h1 { font-size: clamp(2.7rem, 11vw, 3.75rem); line-height: .92; }
+      .hero-copy > p:not(.eyebrow) { margin: 14px 0 18px; font-size: .97rem; }
+      .hero-buttons { gap: 0; }
+      .hero-buttons .button-secondary { min-height: 40px; padding-inline: 15px; font-size: .74rem; }
       .intro-strip-inner { width: 100%; }
-      .intro-fact { padding: 17px 9px; }
-      .intro-fact strong { font-size: 1rem; }
-      .intro-fact span { display: block; font-size: .7rem; }
-      .content-section { width: min(100% - 36px, 600px); }
+      .intro-fact { padding: 12px 8px; }
+      .intro-fact strong { font-size: .95rem; }
+      .intro-fact span { display: block; font-size: .67rem; }
+      .content-section { width: min(100% - 36px, 600px); padding: 50px 0; }
+      .section-heading { margin-bottom: 25px; }
       .creations-grid { grid-template-columns: 1fr; }
       .creation-card { min-height: 260px; }
       .menu-prompt { grid-template-columns: 1fr; gap: 20px; }
@@ -542,12 +570,7 @@
         </div>
         <p class="hero-note">Pickup and delivery options available. Call the shop for same-day questions.</p>
       </div>
-      <div class="hero-visuals" aria-label="Photos from Morris Park Bake Shop">
-        <div class="hero-photo hero-photo-large"><img src="./assets/photos/cake-display.jpg" alt="Cakes and pastries inside the Morris Park Bake Shop display case"></div>
-        <div class="hero-photo hero-photo-top"><img src="./assets/photos/pastry-case.jpg" alt="Fresh cookies and Italian pastries arranged in a bakery display"></div>
-        <div class="hero-photo hero-photo-bottom"><img src="./assets/photos/morris-park-awning.jpeg" alt="The Morris Park Bake Shop awning on Morris Park Avenue"></div>
-        <div class="hero-story"><span>Family bakery</span><strong>A legacy of sweetness.</strong></div>
-      </div>
+
     </section>
 
     <section class="intro-strip" aria-label="Morris Park Bake Shop highlights">
