@@ -92,114 +92,72 @@
       position: sticky;
       top: 0;
       z-index: 50;
-      min-height: 112px;
-      color: var(--wine);
-      background: rgba(255, 253, 249, .97);
-      border-bottom: 1px solid rgba(88, 33, 31, .12);
-      box-shadow: 0 5px 20px rgba(34, 13, 10, .08);
-      backdrop-filter: blur(12px);
+      overflow: hidden;
+      color: var(--cream);
+      background: var(--wine-deep);
+      border-bottom: 1px solid rgba(69, 17, 20, .32);
+      box-shadow: 0 7px 25px rgba(34, 13, 10, .22);
     }
     .header-bar {
-      display: grid;
-      grid-template-columns: minmax(205px, 1.15fr) minmax(330px, 1.3fr) minmax(260px, 1fr);
-      align-items: center;
-      gap: 20px;
-      width: min(1440px, calc(100% - 48px));
-      min-height: 112px;
-      margin: 0 auto;
-    }
-    .brand {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-      min-height: 92px;
-      margin: 8px 0;
-      padding: 13px 20px 19px;
-      color: #ffe7bd;
-      text-decoration: none;
-      background:
-        linear-gradient(105deg, rgba(64, 16, 18, .97), rgba(112, 30, 36, .88)),
-        url("./assets/photos/morris-park-awning.jpeg") center 18% / cover no-repeat;
-      border-radius: 4px 4px 21px 21px;
-      box-shadow: 0 9px 19px rgba(62, 18, 18, .18);
-    }
-    .brand-kicker {
-      display: block;
-      margin-bottom: 4px;
-      color: #f3d9a6;
-      font-size: .6rem;
-      font-weight: 800;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .brand-name {
-      display: block;
-      font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(1rem, 1.7vw, 1.38rem);
-      font-weight: 700;
-      line-height: 1.05;
-      text-wrap: balance;
-    }
-    .desktop-nav {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: clamp(15px, 2vw, 30px);
-    }
-    .desktop-nav a {
-      padding: 8px 0;
-      color: var(--wine);
-      font-size: .77rem;
-      font-weight: 800;
-      letter-spacing: .1em;
-      text-decoration: none;
-      text-transform: uppercase;
-      border-bottom: 2px solid transparent;
-      transition: border-color .2s ease, opacity .2s ease;
-    }
-    .desktop-nav a:hover, .desktop-nav a:focus-visible { border-color: var(--terracotta); }
-    .header-actions {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      gap: 10px;
+      width: 100%;
+      min-height: clamp(150px, 21vw, 300px);
+      margin: 0 auto;
+      isolation: isolate;
     }
-    .header-call, .header-order, .menu-toggle {
+    .header-awning {
+      position: absolute;
+      z-index: 0;
+      inset: 0;
+      display: block;
+      color: transparent;
+      background-color: var(--wine-deep);
+      background-image:
+        linear-gradient(90deg, rgba(55, 9, 14, .08), rgba(97, 22, 30, .02) 50%, rgba(55, 9, 14, .08)),
+        url("./assets/photos/morris-park-awning-clean.png");
+      background-position: center 42%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      filter: saturate(1.03) contrast(1.03);
+    }
+    .header-awning::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 2, 4, .08), transparent 32%, rgba(15, 2, 4, .11));
+      pointer-events: none;
+    }
+    .header-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      padding: 0 clamp(17px, 3vw, 44px);
+      pointer-events: none;
+    }
+    .menu-toggle {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 42px;
-      border-radius: 999px;
-      font-size: .74rem;
-      font-weight: 800;
-      letter-spacing: .035em;
-      text-decoration: none;
-      transition: transform .2s ease, background .2s ease, color .2s ease;
-    }
-    .header-call {
-      padding: 0 13px;
-      color: var(--wine);
-      border: 1px solid rgba(92, 33, 31, .44);
-      background: var(--white);
-    }
-    .header-order {
-      padding: 0 14px;
-      color: var(--white);
-      background: var(--wine);
-      border: 1px solid var(--wine);
-    }
-    .header-call:hover, .header-order:hover { transform: translateY(-2px); }
-    .header-order:hover { background: var(--terracotta); border-color: var(--terracotta); }
-    .menu-toggle {
-      width: 42px;
+      width: clamp(48px, 5.2vw, 60px);
+      height: clamp(48px, 5.2vw, 60px);
       padding: 0;
       color: var(--wine);
-      border: 1px solid rgba(92, 33, 31, .44);
-      background: var(--white);
+      background: rgba(255, 253, 249, .96);
+      border: 1px solid rgba(255, 236, 199, .9);
+      border-radius: 50%;
+      box-shadow: 0 8px 19px rgba(31, 5, 8, .25);
+      cursor: pointer;
+      pointer-events: auto;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
     }
-    .menu-toggle svg { width: 19px; height: 19px; }
-    .menu-toggle:hover, .menu-toggle:focus-visible { color: var(--white); background: var(--wine); }
+    .menu-toggle svg { width: 23px; height: 23px; }
+    .menu-toggle:hover, .menu-toggle:focus-visible { color: var(--white); background: var(--wine-deep); transform: scale(1.05); }
 
     .mobile-menu {
       position: fixed;
@@ -499,17 +457,14 @@
     .mobile-fab-call { color: var(--wine); border: 1px solid var(--wine); }
 
     @media (max-width: 1120px) {
-      .header-bar { grid-template-columns: 1fr auto; }
-      .desktop-nav, .header-call { display: none; }
       .hero { grid-template-columns: minmax(0, .9fr) minmax(380px, 1.1fr); }
       .hero-visuals { grid-template-rows: 180px 165px 125px; }
     }
     @media (max-width: 800px) {
-      .site-header { min-height: 80px; background-position: center 30%; }
-      .header-bar { width: min(100% - 28px, 680px); min-height: 80px; }
-      .brand-kicker { font-size: .56rem; }
-      .brand-name { font-size: 1.1rem; }
-      .header-order { display: none; }
+      .header-bar { min-height: clamp(118px, 32vw, 220px); }
+      .header-awning { background-position: center 42%; }
+      .header-actions { padding-right: 16px; }
+      .menu-toggle { width: 48px; height: 48px; }
       .hero { grid-template-columns: 1fr; width: min(100% - 36px, 600px); min-height: auto; padding: 64px 0 70px; }
       .hero-copy { max-width: 590px; }
       .hero h1 { font-size: clamp(3.2rem, 13vw, 5.2rem); }
@@ -548,18 +503,8 @@
 
   <header class="site-header">
     <div class="header-bar">
-      <a class="brand" href="#top" aria-label="Morris Park Bake Shop home">
-        <span class="brand-kicker">A neighborhood tradition since 1980</span>
-        <span class="brand-name">Morris Park Bake Shop · Bronx, NY</span>
-      </a>
-      <nav class="desktop-nav" aria-label="Primary navigation">
-        <a href="#menu" data-open-modal="menuModal">Menu</a>
-        <a href="#custom-cakes" data-open-modal="cakeModal">Custom Cakes</a>
-        <a href="#visit">Visit Us</a>
-      </nav>
+      <a class="header-awning" href="#top" aria-label="Morris Park Bake Shop home"></a>
       <div class="header-actions">
-        <a class="header-call" href="tel:+17188924968">Call (718) 892-4968</a>
-        <button class="header-order" type="button" data-open-modal="deliveryModal">Order Delivery</button>
         <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
         </button>
