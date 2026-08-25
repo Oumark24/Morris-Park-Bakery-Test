@@ -429,13 +429,14 @@
       background: var(--white);
       border: 1px solid var(--line);
       border-radius: 10px;
+      font: inherit;
     }
     .form-field textarea { min-height: 132px; resize: vertical; }
     .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: 3px solid rgba(163,79,64,.22); border-color: var(--terracotta); }
-    .field-hint { margin: -1px 0 0; color: var(--muted); font-size: .75rem; }
-    .form-disclosure { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .76rem; line-height: 1.5; }
+    .field-hint { margin: -1px 0 0; color: var(--muted); font-size: .75rem; line-height: 1.4; }
+    .form-disclosure { grid-column: 1 / -1; margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }
     .form-actions { display: flex; grid-column: 1 / -1; flex-wrap: wrap; align-items: center; gap: 12px; }
-    .modal-submit { min-height: 52px; margin: 0; padding-inline: 27px; }
+    .modal-submit { width: max-content; min-height: 52px; margin: 0; padding-inline: 27px; }
     .form-message { display: none; grid-column: 1 / -1; margin: 0; padding: 13px 15px; color: #214621; background: var(--sage); border-radius: 10px; }
     .form-message.is-visible { display: block; }
     .form-message a { color: inherit; font-weight: 800; }
@@ -725,28 +726,28 @@
       </div>
       <form class="cake-form" id="cakeForm" aria-describedby="cake-form-notice cakeFormStatus">
         <div class="form-field full">
-          <label for="customerName">Full name</label>
-          <input id="customerName" name="customerName" type="text" autocomplete="name" required>
+          <label for="customerName">Full name <span aria-hidden="true">*</span></label>
+          <input id="customerName" name="customerName" type="text" autocomplete="name" required aria-required="true" placeholder="Your full name">
         </div>
         <div class="form-field">
-          <label for="customerPhone">Phone number</label>
-          <input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" required>
+          <label for="customerPhone">Phone number <span aria-hidden="true">*</span></label>
+          <input id="customerPhone" name="customerPhone" type="tel" inputmode="tel" autocomplete="tel" required aria-required="true" placeholder="(718) 555-0123">
         </div>
         <div class="form-field">
-          <label for="customerEmail">Email address</label>
-          <input id="customerEmail" name="customerEmail" type="email" inputmode="email" autocomplete="email" required>
+          <label for="customerEmail">Email address <span aria-hidden="true">*</span></label>
+          <input id="customerEmail" name="customerEmail" type="email" inputmode="email" autocomplete="email" required aria-required="true" placeholder="you@example.com">
         </div>
         <div class="form-field">
-          <label for="eventDate">Event date</label>
-          <input id="eventDate" name="eventDate" type="date" required>
+          <label for="eventDate">Event date <span aria-hidden="true">*</span></label>
+          <input id="eventDate" name="eventDate" type="date" required aria-required="true">
         </div>
         <div class="form-field">
-          <label for="guestCount">Guest count / serving size</label>
-          <input id="guestCount" name="guestCount" type="number" inputmode="numeric" min="1" step="1" required>
+          <label for="guestCount">Guest count / serving size <span aria-hidden="true">*</span></label>
+          <input id="guestCount" name="guestCount" type="number" inputmode="numeric" min="1" step="1" required aria-required="true" placeholder="e.g., 24">
         </div>
         <div class="form-field full">
-          <label for="cakeDetails">Flavor &amp; design details</label>
-          <textarea id="cakeDetails" name="cakeDetails" rows="5" required aria-describedby="cake-details-hint" placeholder="Share flavors, colors, inscription, dietary needs, and any design details."></textarea>
+          <label for="cakeDetails">Flavor &amp; design details <span aria-hidden="true">*</span></label>
+          <textarea id="cakeDetails" name="cakeDetails" rows="5" required aria-required="true" aria-describedby="cake-details-hint" placeholder="Share flavors, colors, inscription, dietary needs, and any design details."></textarea>
           <p class="field-hint" id="cake-details-hint">The bakery can confirm what is available when they respond.</p>
         </div>
         <p class="form-disclosure" id="cake-form-notice">This prototype stores an inquiry draft only in this browser; connect an approved bakery inbox before using it for live customer submissions.</p>
@@ -871,10 +872,13 @@
 
       const cakeForm = document.getElementById('cakeForm');
       const eventDate = document.getElementById('eventDate');
-      eventDate.min = new Date().toISOString().split('T')[0];
+      if (eventDate) eventDate.min = new Date().toISOString().split('T')[0];
       cakeForm.addEventListener('submit', event => {
         event.preventDefault();
-        if (!cakeForm.reportValidity()) return;
+        if (!cakeForm.checkValidity()) {
+          cakeForm.reportValidity();
+          return;
+        }
         const formDraft = Object.fromEntries(new FormData(cakeForm).entries());
         try { sessionStorage.setItem('morrisParkCakeInquiryDraft', JSON.stringify(formDraft)); } catch (error) { /* Browser privacy settings may disable session storage. */ }
         const message = cakeForm.querySelector('.form-message');
