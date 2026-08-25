@@ -3,194 +3,796 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#5a241c">
-  <title>Morris Park Bake Shop | Bronx, NY</title>
-  <meta name="description" content="Morris Park Bake Shop is a Bronx bakery at 1007 Morris Park Avenue. Open the live Uber Eats menu, call the shop, or get directions.">
+  <meta name="theme-color" content="#5a211f">
+  <meta name="description" content="Morris Park Bake Shop is a Bronx bakery at 1007 Morris Park Avenue for handcrafted custom cakes and classic Italian pastries.">
   <link rel="canonical" href="https://oumark24.github.io/Morris-Park-Bakery-Test/">
-  
-  <!-- Open Graph / Social Meta -->
   <meta property="og:site_name" content="Morris Park Bake Shop">
   <meta property="og:title" content="Morris Park Bake Shop | Bronx, NY">
-  <meta property="og:description" content="Open the live menu, call the shop, or get directions to 1007 Morris Park Avenue.">
+  <meta property="og:description" content="Handcrafted custom cakes and classic Italian pastries in the Bronx since 1980.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://oumark24.github.io/Morris-Park-Bakery-Test/">
-  
-  <!-- Twitter Meta -->
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Morris Park Bake Shop | Bronx, NY">
-  <meta name="twitter:description" content="Open the live menu, call the shop, or get directions to 1007 Morris Park Avenue.">
-  
-  <!-- Fonts & Assets -->
+  <meta name="twitter:description" content="Handcrafted custom cakes and classic Italian pastries in the Bronx since 1980.">
+  <title>Morris Park Bake Shop | Bronx, NY</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="./assets/visuals/hero-package-world.svg" fetchpriority="high">
-  
-  <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #5c211f;
+      --wine-deep: #361210;
+      --terracotta: #a34f40;
+      --butter: #f7e8cd;
+      --cream: #fffaf1;
+      --ink: #2d1a18;
+      --muted: #725e58;
+      --line: rgba(88, 41, 32, .16);
+      --sage: #dce9d8;
+      --white: #fffdf9;
+      --shadow: 0 18px 45px rgba(47, 21, 17, .12);
+      --radius-lg: 26px;
+      --radius-md: 16px;
+    }
 
-<style>
-:root{--cream:#fdf8f0;--pastel-pink:#fce4ec;--pastel-mint:#e0f2f1;--pastel-lav:#e8eaf6;--soft-brown:#8d6e63;--dark:#5d4037;--uber-green:#06C167}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:'Georgia',serif;background:var(--cream);color:var(--dark);line-height:1.6}
-header{background:linear-gradient(135deg,var(--cream) 0%,var(--pastel-pink) 100%);padding:4rem 2rem;text-align:center}
-header h1{font-size:3rem;margin-bottom:1rem;color:var(--dark);font-weight:400;letter-spacing:.05em}
-header p{font-size:1.2rem;margin-bottom:2rem;color:var(--soft-brown)}
-.btn{display:inline-block;padding:.8rem 2rem;border:none;border-radius:50px;background:var(--pastel-pink);color:var(--dark);text-decoration:none;font-size:1rem;font-weight:600;transition:.3s;cursor:pointer;margin:.5rem}
-.btn:hover{background:var(--pastel-mint);transform:translateY(-2px)}
-.container{max-width:1200px;margin:0 auto;padding:0 2rem}
-section{padding:3rem 0}
-section h2{font-size:2.2rem;margin-bottom:2rem;color:var(--dark);text-align:center;position:relative}
-section h2:after{content:'';display:block;width:80px;height:4px;background:var(--pastel-pink);margin:1rem auto;border-radius:2px}
-.form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;max-width:800px;margin:0 auto}
-.form-group{display:flex;flex-direction:column}
-.form-group label{margin-bottom:.5rem;font-weight:600;color:var(--soft-brown)}
-.form-group input,.form-group select{padding:.8rem;border:2px solid var(--pastel-lav);border-radius:8px;font-size:1rem;background:white;transition:.3s}
-.form-group input:focus,.form-group select:focus{border-color:var(--pastel-pink);outline:none}
-.file-upload{padding:1.5rem;border:2px dashed var(--pastel-lav);border-radius:8px;text-align:center;cursor:pointer;transition:.3s}
-.file-upload:hover{border-color:var(--pastel-pink);background:var(--pastel-mint)}
-.file-upload input{display:none}
-.gallery-filters{display:flex;justify-content:center;gap:1rem;margin-bottom:2rem;flex-wrap:wrap}
-.gallery-filters button{padding:.5rem 1.2rem;border:none;background:var(--pastel-lav);color:var(--dark);border-radius:50px;cursor:pointer;transition:.3s;font-weight:600}
-.gallery-filters button.active,.gallery-filters button:hover{background:var(--pastel-pink)}
-.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2rem}
-.gallery-item{background:white;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.08);transition:.3s}
-.gallery-item:hover{transform:translateY(-5px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
-.img-placeholder{width:100%;height:220px;background:var(--pastel-lav);display:flex;align-items:center;justify-content:center;color:var(--soft-brown);font-style:italic;text-align:center;padding:1rem;border-bottom:2px dashed var(--pastel-pink)}
-.gallery-item h3{padding:1rem;font-size:1.1rem;color:var(--dark);text-align:center}
-.menu-section{background:var(--pastel-mint);padding:3rem 0}
-.menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;max-width:1000px;margin:0 auto}
-.menu-card{background:white;padding:1.5rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05)}
-.menu-card h3{margin-bottom:1rem;color:var(--dark);font-size:1.3rem}
-.menu-card ul{list-style:none}.menu-card li{margin-bottom:.5rem;padding:.5rem 0;border-bottom:1px solid var(--pastel-lav)}
-.menu-card li:last-child{border-bottom:none}
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;max-width:800px;margin:0 auto}
-.contact-card{background:white;padding:2rem;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.05);text-align:center}
-.contact-card h3{margin-bottom:1rem;color:var(--dark)}
-.contact-card p{margin-bottom:.5rem;color:var(--soft-brown)}
-.call-btn{background:var(--pastel-mint)}
-.map-container{height:300px;border-radius:12px;overflow:hidden;background:var(--pastel-lav)}
-.delivery{background:var(--pastel-mint);padding:2.5rem 2rem;text-align:center}
-.delivery h2{font-size:1.8rem;margin-bottom:.5rem}
-.delivery h2:after{display:none}
-.delivery p{color:var(--soft-brown);margin-bottom:1.5rem}
-.btn-uber{background:var(--uber-green);color:#fff;box-shadow:0 4px 12px rgba(6,193,103,.35)}
-.btn-uber:hover{background:#05a659;color:#fff}
-.fab{display:none;position:fixed;right:1.2rem;bottom:1.2rem;z-index:999;align-items:center;gap:.5rem;padding:.9rem 1.3rem;border-radius:50px;background:var(--uber-green);color:#fff;text-decoration:none;font-family:'Georgia',serif;font-weight:600;font-size:1rem;box-shadow:0 6px 18px rgba(0,0,0,.3);transition:.3s}
-.fab:hover,.fab:focus{background:#05a659;box-shadow:0 8px 24px rgba(0,0,0,.35)}
-footer{background:var(--soft-brown);color:white;text-align:center;padding:2rem;margin-top:3rem}
-footer p{margin:.5rem 0}
-@media (max-width:768px){header h1{font-size:2rem}header p{font-size:1rem}.form-grid{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.fab{display:inline-flex}body{padding-bottom:4.5rem}}
-</style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.5;
+    }
+    body.modal-open { overflow: hidden; }
+    a { color: inherit; }
+    button, input, select, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img { display: block; max-width: 100%; }
+    .skip-link {
+      position: fixed;
+      top: -50px;
+      left: 20px;
+      z-index: 100;
+      padding: 10px 14px;
+      border-radius: 9px;
+      color: var(--white);
+      background: var(--wine-deep);
+      transition: top .2s ease;
+    }
+    .skip-link:focus { top: 16px; }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--terracotta);
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    .section-heading {
+      max-width: 680px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+    .section-heading h2 {
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3.7rem);
+      line-height: 1.04;
+      letter-spacing: -.045em;
+    }
+    .section-heading p:not(.eyebrow) {
+      max-width: 560px;
+      margin: 14px auto 0;
+      color: var(--muted);
+    }
+
+    /* Storefront header */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      min-height: 112px;
+      color: var(--white);
+      background:
+        linear-gradient(90deg, rgba(35, 12, 10, .82), rgba(68, 17, 14, .46) 52%, rgba(36, 9, 8, .72)),
+        url("./assets/photos/morris-park-storefront.jpg") center 35% / cover no-repeat;
+      box-shadow: 0 5px 20px rgba(34, 13, 10, .26);
+    }
+    .header-bar {
+      display: grid;
+      grid-template-columns: minmax(205px, 1.15fr) minmax(330px, 1.3fr) minmax(260px, 1fr);
+      align-items: center;
+      gap: 20px;
+      width: min(1440px, calc(100% - 48px));
+      min-height: 112px;
+      margin: 0 auto;
+    }
+    .brand {
+      min-width: 0;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .brand-kicker {
+      display: block;
+      margin-bottom: 4px;
+      font-size: .64rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+      opacity: .88;
+    }
+    .brand-name {
+      display: block;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-weight: 700;
+      line-height: 1.05;
+      white-space: nowrap;
+    }
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: clamp(15px, 2vw, 30px);
+    }
+    .desktop-nav a {
+      padding: 8px 0;
+      color: var(--white);
+      font-size: .77rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-decoration: none;
+      text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      transition: border-color .2s ease, opacity .2s ease;
+    }
+    .desktop-nav a:hover, .desktop-nav a:focus-visible { border-color: var(--butter); }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .header-call, .header-order, .menu-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      border-radius: 999px;
+      font-size: .74rem;
+      font-weight: 800;
+      letter-spacing: .035em;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, color .2s ease;
+    }
+    .header-call {
+      padding: 0 13px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, .7);
+      background: rgba(255, 255, 255, .12);
+    }
+    .header-order {
+      padding: 0 14px;
+      color: var(--wine-deep);
+      background: var(--butter);
+      border: 1px solid var(--butter);
+    }
+    .header-call:hover, .header-order:hover { transform: translateY(-2px); }
+    .menu-toggle {
+      width: 42px;
+      padding: 0;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, .7);
+      background: rgba(35, 12, 10, .35);
+    }
+    .menu-toggle svg { width: 19px; height: 19px; }
+    .menu-toggle:hover, .menu-toggle:focus-visible { background: rgba(255, 255, 255, .2); }
+
+    .mobile-menu {
+      position: fixed;
+      z-index: 60;
+      inset: 0 0 0 auto;
+      width: min(360px, 88vw);
+      padding: 24px;
+      color: var(--cream);
+      background: var(--wine-deep);
+      transform: translateX(105%);
+      transition: transform .28s ease;
+      box-shadow: -14px 0 34px rgba(27, 5, 4, .3);
+    }
+    .mobile-menu.is-open { transform: translateX(0); }
+    .mobile-menu-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 42px; }
+    .mobile-menu strong { font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; }
+    .mobile-menu-close {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      color: var(--cream);
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.6);
+      border-radius: 50%;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .mobile-menu nav { display: grid; gap: 7px; }
+    .mobile-menu nav a {
+      padding: 13px 0;
+      color: var(--cream);
+      font-size: 1.45rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+    .mobile-menu .drawer-actions { display: grid; gap: 12px; margin-top: 38px; }
+    .drawer-actions a { padding: 13px 15px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 800; }
+    .drawer-call { color: var(--cream); border: 1px solid rgba(255,255,255,.65); }
+    .drawer-order { color: var(--wine-deep); background: var(--butter); }
+    .mobile-menu-backdrop {
+      position: fixed;
+      z-index: 55;
+      inset: 0;
+      background: rgba(30, 9, 7, .56);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .28s ease;
+    }
+    .mobile-menu-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+    main { overflow: hidden; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .94fr) minmax(460px, 1.06fr);
+      gap: clamp(36px, 7vw, 105px);
+      align-items: center;
+      width: min(1230px, calc(100% - 48px));
+      min-height: min(700px, calc(100vh - 112px));
+      margin: 0 auto;
+      padding: clamp(58px, 9vw, 120px) 0;
+    }
+    .hero-copy { max-width: 560px; }
+    .hero h1 {
+      max-width: 630px;
+      margin: 0;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(3.1rem, 6.1vw, 5.85rem);
+      line-height: .93;
+      letter-spacing: -.07em;
+    }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 510px;
+      margin: 24px 0 29px;
+      color: var(--muted);
+      font-size: clamp(1rem, 1.4vw, 1.16rem);
+    }
+    .hero-buttons { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button-primary, .button-secondary, .button-quiet, .modal-submit {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 21px;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+    }
+    .button-primary, .modal-submit { color: var(--white); background: var(--wine); border: 1px solid var(--wine); }
+    .button-primary:hover, .modal-submit:hover { background: var(--terracotta); border-color: var(--terracotta); transform: translateY(-2px); }
+    .button-secondary { color: var(--wine); border: 1px solid var(--wine); background: transparent; }
+    .button-secondary:hover { color: var(--white); background: var(--wine); transform: translateY(-2px); }
+    .button-quiet { color: var(--wine); background: var(--butter); border: 1px solid var(--butter); }
+    .button-quiet:hover { transform: translateY(-2px); background: #f0d8aa; }
+    .hero-note { margin: 18px 0 0; color: var(--muted); font-size: .77rem; }
+    .hero-visuals {
+      display: grid;
+      grid-template-columns: 1.03fr .97fr;
+      grid-template-rows: 190px 175px 130px;
+      gap: 14px;
+    }
+    .hero-photo, .hero-story {
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow);
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-photo-large { grid-row: span 2; }
+    .hero-photo-large img { object-position: center; }
+    .hero-photo-top img { object-position: center 40%; }
+    .hero-photo-bottom { grid-column: 2; }
+    .hero-photo-bottom img { object-position: center 62%; }
+    .hero-story {
+      grid-column: 1;
+      padding: 24px;
+      color: var(--white);
+      background: var(--wine);
+    }
+    .hero-story span { display: block; margin-bottom: 8px; color: var(--butter); font-size: .65rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .hero-story strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: clamp(1.35rem, 2.4vw, 2rem); line-height: 1.02; }
+
+    .intro-strip { border-block: 1px solid var(--line); background: var(--butter); }
+    .intro-strip-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      width: min(1230px, calc(100% - 48px));
+      margin: 0 auto;
+    }
+    .intro-fact { padding: 20px clamp(16px, 3vw, 42px); text-align: center; }
+    .intro-fact + .intro-fact { border-left: 1px solid var(--line); }
+    .intro-fact strong { display: block; font-family: "Playfair Display", Georgia, serif; font-size: 1.2rem; }
+    .intro-fact span { color: var(--muted); font-size: .78rem; }
+
+    .content-section { width: min(1230px, calc(100% - 48px)); margin: 0 auto; padding: clamp(70px, 9vw, 124px) 0; }
+    .creations-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .creation-card {
+      min-height: 306px;
+      padding: 25px;
+      color: var(--white);
+      background-position: center;
+      background-size: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+    }
+    .creation-card::before { content: ""; position: absolute; }
+    .creation-card.cannoli { background-image: linear-gradient(0deg, rgba(31,9,7,.81), rgba(31,9,7,.02) 68%), url("./assets/photos/pastry-case.jpg"); }
+    .creation-card.cakes { background-image: linear-gradient(0deg, rgba(31,9,7,.81), rgba(31,9,7,.02) 68%), url("./assets/photos/cake-display.jpg"); }
+    .creation-card.cookies { background-image: linear-gradient(0deg, rgba(31,9,7,.82), rgba(31,9,7,.03) 70%), url("./assets/photos/pastry-case.jpg"); background-position: right center; }
+    .creation-card .card-label { margin-bottom: 6px; color: var(--butter); font-size: .67rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .creation-card h3 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: 2rem; line-height: 1; }
+    .creation-card p { margin: 9px 0 0; font-size: .86rem; }
+
+    .menu-prompt {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: clamp(30px, 5vw, 58px);
+      color: var(--cream);
+      background: var(--wine-deep);
+      border-radius: var(--radius-lg);
+    }
+    .menu-prompt h2 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1; letter-spacing: -.05em; }
+    .menu-prompt p { max-width: 625px; margin: 13px 0 0; color: rgba(255,250,241,.77); }
+    .menu-prompt .button-quiet { white-space: nowrap; }
+
+    .visit-section { background: #f3ebe0; }
+    .visit-section .content-section { padding-bottom: clamp(88px, 10vw, 135px); }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .visit-details { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .visit-card {
+      min-height: 192px;
+      padding: 27px;
+      background: var(--white);
+      border: 1px solid rgba(88,41,32,.09);
+      border-radius: var(--radius-md);
+    }
+    .visit-card h3 { margin: 0 0 12px; font-family: "Playfair Display", Georgia, serif; font-size: 1.55rem; }
+    .visit-card p { margin: 0; color: var(--muted); }
+    .visit-card p + p { margin-top: 4px; }
+    .visit-card a { color: var(--wine); font-weight: 800; }
+    .map-card { min-height: 402px; overflow: hidden; padding: 0; }
+    .map-card iframe { width: 100%; height: 100%; min-height: 402px; border: 0; }
+
+    footer { padding: 35px 24px 88px; color: rgba(255,250,241,.76); background: var(--wine-deep); text-align: center; }
+    footer strong { display: block; margin-bottom: 7px; color: var(--cream); font-family: "Playfair Display", Georgia, serif; font-size: 1.25rem; }
+    footer p { margin: 0; font-size: .82rem; }
+
+    /* Dialogs are intentionally kept out of the main scroll flow. */
+    .modal[hidden] { display: none; }
+    .modal {
+      position: fixed;
+      z-index: 80;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: rgba(30, 9, 7, .7);
+    }
+    .modal-panel {
+      position: relative;
+      width: min(940px, 100%);
+      max-height: min(830px, calc(100vh - 40px));
+      overflow: auto;
+      padding: clamp(28px, 5vw, 55px);
+      background: var(--cream);
+      border-radius: 24px;
+      box-shadow: 0 28px 70px rgba(20, 4, 2, .35);
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      padding: 0;
+      color: var(--wine);
+      background: var(--butter);
+      border: 0;
+      border-radius: 50%;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .modal-header { max-width: 580px; margin-bottom: 28px; }
+    .modal-header h2 { margin: 0; font-family: "Playfair Display", Georgia, serif; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.03; letter-spacing: -.04em; }
+    .modal-header p { margin: 12px 0 0; color: var(--muted); }
+    .cake-form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .form-field { display: grid; gap: 8px; }
+    .form-field.full { grid-column: 1 / -1; }
+    .form-field label { color: var(--wine); font-size: .78rem; font-weight: 800; letter-spacing: .04em; }
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      padding: 12px 13px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+    .form-field input:focus, .form-field select:focus, .form-field textarea:focus { outline: 3px solid rgba(163,79,64,.22); border-color: var(--terracotta); }
+    .file-input { padding: 16px; border: 1px dashed var(--terracotta); border-radius: 10px; color: var(--wine); background: #fff7e9; }
+    .modal-submit { width: max-content; margin-top: 4px; padding-inline: 27px; }
+    .form-message { display: none; grid-column: 1 / -1; margin: 0; padding: 13px 15px; color: #214621; background: var(--sage); border-radius: 10px; }
+    .form-message.is-visible { display: block; }
+    .modal-menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .menu-card { padding: 23px; background: var(--white); border: 1px solid var(--line); border-radius: 15px; }
+    .menu-card h3 { margin: 0 0 16px; color: var(--wine); font-family: "Playfair Display", Georgia, serif; font-size: 1.45rem; }
+    .menu-item + .menu-item { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--line); }
+    .menu-item strong { display: block; color: var(--terracotta); font-size: .74rem; letter-spacing: .04em; }
+    .menu-item p { margin: 3px 0 0; color: var(--muted); font-size: .86rem; }
+
+    .mobile-fab {
+      position: fixed;
+      z-index: 45;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      padding: 9px 12px calc(9px + env(safe-area-inset-bottom));
+      background: rgba(255,250,241,.96);
+      box-shadow: 0 -7px 24px rgba(46,20,16,.12);
+      backdrop-filter: blur(11px);
+    }
+    .mobile-fab a { display: flex; align-items: center; justify-content: center; min-height: 45px; border-radius: 9px; font-size: .78rem; font-weight: 800; text-decoration: none; }
+    .mobile-fab-order { color: var(--white); background: var(--wine); }
+    .mobile-fab-call { color: var(--wine); border: 1px solid var(--wine); }
+
+    @media (max-width: 1120px) {
+      .header-bar { grid-template-columns: 1fr auto; }
+      .desktop-nav, .header-call { display: none; }
+      .hero { grid-template-columns: minmax(0, .9fr) minmax(380px, 1.1fr); }
+      .hero-visuals { grid-template-rows: 180px 165px 125px; }
+    }
+    @media (max-width: 800px) {
+      .site-header { min-height: 80px; background-position: center 30%; }
+      .header-bar { width: min(100% - 28px, 680px); min-height: 80px; }
+      .brand-kicker { font-size: .56rem; }
+      .brand-name { font-size: 1.1rem; }
+      .header-order { display: none; }
+      .hero { grid-template-columns: 1fr; width: min(100% - 36px, 600px); min-height: auto; padding: 64px 0 70px; }
+      .hero-copy { max-width: 590px; }
+      .hero h1 { font-size: clamp(3.2rem, 13vw, 5.2rem); }
+      .hero-visuals { grid-template-rows: 185px 155px 112px; }
+      .intro-strip-inner { width: 100%; }
+      .intro-fact { padding: 17px 9px; }
+      .intro-fact strong { font-size: 1rem; }
+      .intro-fact span { display: block; font-size: .7rem; }
+      .content-section { width: min(100% - 36px, 600px); }
+      .creations-grid { grid-template-columns: 1fr; }
+      .creation-card { min-height: 260px; }
+      .menu-prompt { grid-template-columns: 1fr; gap: 20px; }
+      .menu-prompt .button-quiet { width: max-content; }
+      .visit-grid { grid-template-columns: 1fr; }
+      .visit-details { grid-template-columns: 1fr 1fr; }
+      .map-card, .map-card iframe { min-height: 300px; }
+      .mobile-fab { display: grid; }
+      footer { padding-bottom: 92px; }
+    }
+    @media (max-width: 500px) {
+      .hero-visuals { grid-template-columns: 1.05fr .95fr; grid-template-rows: 155px 132px 106px; gap: 10px; }
+      .hero-story { padding: 17px; }
+      .hero-story strong { font-size: 1.25rem; }
+      .visit-details { grid-template-columns: 1fr; }
+      .cake-form, .modal-menu-grid { grid-template-columns: 1fr; }
+      .modal-panel { max-height: calc(100vh - 22px); padding: 44px 22px 25px; border-radius: 17px; }
+      .modal-submit { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-<header>
-<h1>Morris Park Bake Shop</h1>
-<p>Handcrafted Custom Cakes & Classic Italian Pastries Since 1980</p>
-<a href="#form" class="btn">Request Custom Cake Quote</a>
-<a href="#gallery" class="btn">Browse Gallery</a>
-</header>
+  <a class="skip-link" href="#main-content">Skip to content</a>
 
-<section class="delivery">
-<h2>Order Delivery</h2>
-<p>Fresh pastries and cakes delivered straight to your door.</p>
-<a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer" class="btn btn-uber">Order Delivery on Uber Eats</a>
-</section>
+  <header class="site-header">
+    <div class="header-bar">
+      <a class="brand" href="#top" aria-label="Morris Park Bake Shop home">
+        <span class="brand-kicker">A neighborhood tradition since 1980</span>
+        <span class="brand-name">Morris Park Bake Shop · Bronx, NY</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#menu" data-open-modal="menuModal">Menu</a>
+        <a href="#custom-cakes" data-open-modal="cakeModal">Custom Cakes</a>
+        <a href="#visit">Visit Us</a>
+      </nav>
+      <div class="header-actions">
+        <a class="header-call" href="tel:+17188924968">Call (718) 892-4968</a>
+        <a class="header-order" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order Delivery</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
+        </button>
+      </div>
+    </div>
+  </header>
 
-<main class="container">
-<section id="form">
-<h2>Custom Cake Request</h2>
-<form class="form-grid" id="cakeForm">
-<div class="form-group"><label>Event Type</label>
-<select required><option value="">Select...</option><option>Wedding</option><option>Birthday</option><option>Anniversary</option></select></div>
-<div class="form-group"><label>Cake Size</label>
-<select required><option value="">Select...</option><option>6" (Serves 8-10)</option><option>7" (Serves 12-14)</option><option>8" (Serves 16-18)</option><option>10" (Serves 25-30)</option></select></div>
-<div class="form-group"><label>Flavor Choice</label>
-<select required><option value="">Select...</option><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Tiramisu</option><option>Cannoli</option><option>Strawberry Shortcake</option><option>Carrot</option><option>Oreo</option><option>Funfetti</option></select></div>
-<div class="form-group"><label>Delivery Date</label>
-<input type="date" required></div>
-<div class="form-group"><label>Special Requests</label>
-<textarea rows="3" placeholder="Allergies, design notes, etc."></textarea></div>
-<div class="form-group">
-<label>Upload Inspiration Photo</label>
-<label class="file-upload"><input type="file" accept="image/*">Click to Upload</label>
-</div>
-<button type="submit" class="btn" style="grid-column:1/-1;width:auto">Submit Request</button>
-</form>
-</section>
+  <div class="mobile-menu-backdrop" aria-hidden="true"></div>
+  <aside class="mobile-menu" id="mobileMenu" aria-label="Mobile navigation">
+    <div class="mobile-menu-top">
+      <strong>Morris Park<br>Bake Shop</strong>
+      <button class="mobile-menu-close" type="button" aria-label="Close navigation menu">×</button>
+    </div>
+    <nav aria-label="Mobile primary navigation">
+      <a href="#menu" data-open-modal="menuModal">Our Menu</a>
+      <a href="#custom-cakes" data-open-modal="cakeModal">Custom Cakes</a>
+      <a href="#creations">Our Creations</a>
+      <a href="#visit">Visit Us</a>
+    </nav>
+    <div class="drawer-actions">
+      <a class="drawer-order" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order Delivery</a>
+      <a class="drawer-call" href="tel:+17188924968">Call (718) 892-4968</a>
+    </div>
+  </aside>
 
-<section id="gallery">
-<h2>Our Creations</h2>
-<div class="gallery-filters">
-<button class="active" data-filter="all">All</button>
-<button data-filter="cakes">Custom Cakes</button>
-<button data-filter="pastries">Italian Pastries</button>
-<button data-filter="cookies">Cookies</button>
-<button data-filter="bread">Fresh Bread</button>
-</div>
-<div class="gallery">
-<div class="gallery-item" data-category="cakes"><div class="img-placeholder">Photo coming soon<br>(Wedding Cake)</div><h3>Wedding Cake</h3></div>
-<div class="gallery-item" data-category="pastries"><div class="img-placeholder">Photo coming soon<br>(Tiramisu)</div><h3>Tiramisu</h3></div>
-<div class="gallery-item" data-category="cookies"><div class="img-placeholder">Photo coming soon<br>(Assorted Cookies)</div><h3>Assorted Cookies</h3></div>
-<div class="gallery-item" data-category="bread"><div class="img-placeholder">Photo coming soon<br>(Fresh Bread)</div><h3>Fresh Bread</h3></div>
-<div class="gallery-item" data-category="cakes"><div class="img-placeholder">Photo coming soon<br>(Birthday Cake)</div><h3>Birthday Cake</h3></div>
-<div class="gallery-item" data-category="pastries"><div class="img-placeholder">Photo coming soon<br>(Cannoli)</div><h3>Cannoli</h3></div>
-<div class="gallery-item" data-category="cookies"><div class="img-placeholder">Photo coming soon<br>(Chocolate Chip)</div><h3>Chocolate Chip</h3></div>
-<div class="gallery-item" data-category="bread"><div class="img-placeholder">Photo coming soon<br>(Sourdough)</div><h3>Sourdough</h3></div>
-</div>
-</section>
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">1007 Morris Park Avenue · Bronx, NY</p>
+        <h1 id="hero-title">Handcrafted in the Bronx since 1980.</h1>
+        <p>From celebration cakes and crisp cookie boxes to classic Italian pastries, our family bakery makes the neighborhood’s sweet traditions fresh every day.</p>
+        <div class="hero-buttons">
+          <a class="button-primary" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order Delivery</a>
+          <a class="button-secondary" href="#custom-cakes" data-open-modal="cakeModal">Request Quote</a>
+        </div>
+        <p class="hero-note">Pickup and delivery options available. Call the shop for same-day questions.</p>
+      </div>
+      <div class="hero-visuals" aria-label="Photos from Morris Park Bake Shop">
+        <div class="hero-photo hero-photo-large"><img src="./assets/photos/cake-display.jpg" alt="Cakes and pastries inside the Morris Park Bake Shop display case"></div>
+        <div class="hero-photo hero-photo-top"><img src="./assets/photos/pastry-case.jpg" alt="Fresh cookies and Italian pastries arranged in a bakery display"></div>
+        <div class="hero-photo hero-photo-bottom"><img src="./assets/photos/morris-park-storefront.jpg" alt="Morris Park Bake Shop storefront on Morris Park Avenue"></div>
+        <div class="hero-story"><span>Family bakery</span><strong>A legacy of sweetness.</strong></div>
+      </div>
+    </section>
 
-<section class="menu-section">
-<h2>Our Menu</h2>
-<div class="menu-grid">
-<div class="menu-card"><h3>Cookies & Sweet Bites</h3><ul>
-<li><strong>$4.00</strong> Large Cookies: Chocolate Chip, Rainbow Sprinkles, M&M's, Jelly Sandwich, Linzer Tart, Black & White</li>
-<li><strong>$3.00</strong> Donuts, Buns</li>
-<li><strong>$3.50</strong> Muffins, Cupcakes</li>
-<li><strong>$4.00</strong> Turnovers</li>
-<li><strong>$4.50</strong> Brownies</li>
-</ul></div>
-<div class="menu-card"><h3>Individual Pastries & Tarts</h3><ul>
-<li><strong>$8.50</strong> French Napoleon, Tiramisu, Chocolate Mousse, Lobster Tail, Large Cannoli, Eclair, Fruit Tart, French Custard</li>
-</ul></div>
-<div class="menu-card"><h3>Whole Cakes</h3><ul>
-<li><strong>$35.00</strong> 7" Specialty: Carrot, Strawberry Shortcake, Oreo, Funfetti, Mocha, Dulce De Leche, Red Velvet, Chocolate Mousse, Chocolate Fudge, Shadow, Black Forest, Strawberry Banana</li>
-<li><strong>$40.00</strong> 8" Signature: Italian, Tres Leche, Cannoli, Tiramisu, Fruit</li>
-</ul></div>
-<div class="menu-card"><h3>Cheesecakes & Pies</h3><ul>
-<li><strong>$8.00</strong> Slice of Cheesecake</li>
-<li><strong>$15.00</strong> Apple Horn Pie</li>
-<li><strong>$25.00</strong> 7" Plain or Marble Cheesecake</li>
-<li><strong>$30.00</strong> 7" Strawberries, Chocolate Fudge, Funfetti, Oreo, Red Velvet, Mixed Fresh Fruit Cheesecake</li>
-</ul></div>
-</div>
-</section>
+    <section class="intro-strip" aria-label="Morris Park Bake Shop highlights">
+      <div class="intro-strip-inner">
+        <article class="intro-fact"><strong>Classic Italian</strong><span>Pastries made for sharing</span></article>
+        <article class="intro-fact"><strong>Custom Cakes</strong><span>Celebrations, made personal</span></article>
+        <article class="intro-fact"><strong>Bronx Proud</strong><span>Serving our neighbors since 1980</span></article>
+      </div>
+    </section>
 
-<section id="contact">
-<h2>Visit Us</h2>
-<div class="contact-grid">
-<div class="contact-card"><h3>Location</h3><p>1007 Morris Park Ave</p><p>Bronx, NY 10462</p></div>
-<div class="contact-card"><h3>Hours</h3><p>Mon-Fri: 7:00 AM - 7:00 PM</p><p>Sat: 7:00 AM - 6:00 PM</p><p>Sun: 8:00 AM - 4:00 PM</p></div>
-<div class="contact-card"><h3>Contact</h3><p>Phone: 718-892-4968</p><a href="tel:+17188924968" class="btn call-btn">📞 Call Us</a></div>
-<div class="contact-card"><h3>Map</h3>
-<div class="map-container"><iframe src="https://www.google.com/maps/place/Morris+Park+Bake+Shop,+1007+Morris+Park+Ave,+Bronx,+NY+10462,+United+States/@40.8484279,-73.8560396,17z/data=!4m6!3m5!1s0x89c2f4a5af8a6847:0x844797c0023b01aa!8m2!3d40.8484279!4d-73.8560396!16s%2Fg%2F1tflsz04?gl=tg&utm_campaign=ml-ardl&g_ep=Eg1tbF8yMDI2MDgwNF8wIJvbDyoASAJQAQ%3D%3D&output=embed" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy"></iframe></div>
-</div>
-</div>
-</section>
-</main>
+    <section class="content-section" id="creations" aria-labelledby="creations-title">
+      <div class="section-heading">
+        <p class="eyebrow">Made for the moments that matter</p>
+        <h2 id="creations-title">Small-batch favorites, made here.</h2>
+        <p>Explore the classics that keep Morris Park coming back, from showcase cakes to pastry-box essentials.</p>
+      </div>
+      <div class="creations-grid">
+        <article class="creation-card cannoli">
+          <span class="card-label">Italian pastry</span>
+          <h3>Cannoli</h3>
+          <p>Crisp shells, creamy filling, and the unmistakable bakery-case classic.</p>
+        </article>
+        <article class="creation-card cakes">
+          <span class="card-label">Made to celebrate</span>
+          <h3>Wedding &amp; occasion cakes</h3>
+          <p>Thoughtfully designed centerpieces for birthdays, showers, weddings, and more.</p>
+        </article>
+        <article class="creation-card cookies">
+          <span class="card-label">Ready to share</span>
+          <h3>Cookie boxes</h3>
+          <p>Chocolate chip, rainbow sprinkles, black &amp; white, and more neighborhood favorites.</p>
+        </article>
+      </div>
+    </section>
 
-<footer>
-<p><strong>Morris Park Bake Shop</strong></p>
-<p>Handcrafted with love since 1980</p>
-<p>1007 Morris Park Ave, Bronx, NY 10462 | 718-892-4968</p>
-</footer>
+    <section class="content-section" id="menu" aria-labelledby="menu-prompt-title">
+      <div class="menu-prompt">
+        <div>
+          <p class="eyebrow" style="color: var(--butter)">See the full selection</p>
+          <h2 id="menu-prompt-title">Choose a classic. Discover a new favorite.</h2>
+          <p>Open the menu without leaving your place on the page. Every category is organized in easy-to-scan bakery cards.</p>
+        </div>
+        <a class="button-quiet" href="#menu" data-open-modal="menuModal">Open Our Menu</a>
+      </div>
+    </section>
 
-<a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer" class="fab" aria-label="Order delivery on Uber Eats">🛵 Order Delivery</a>
+    <section class="visit-section" id="visit" aria-labelledby="visit-title">
+      <div class="content-section">
+        <div class="section-heading">
+          <p class="eyebrow">Come say hello</p>
+          <h2 id="visit-title">Visit the bakery.</h2>
+          <p>Find us on Morris Park Avenue for a fresh pastry, a conversation with the team, or pickup for your next celebration.</p>
+        </div>
+        <div class="visit-grid">
+          <div class="visit-details">
+            <article class="visit-card">
+              <h3>Location</h3>
+              <p>1007 Morris Park Ave</p>
+              <p>Bronx, NY 10462</p>
+              <p style="margin-top: 14px"><a href="https://www.google.com/maps/place/Morris+Park+Bake+Shop,+1007+Morris+Park+Ave,+Bronx,+NY+10462" target="_blank" rel="noopener noreferrer">Get directions</a></p>
+            </article>
+            <article class="visit-card">
+              <h3>Hours</h3>
+              <p>Mon–Fri: 7:00 AM–7:00 PM</p>
+              <p>Saturday: 7:00 AM–6:00 PM</p>
+              <p>Sunday: 8:00 AM–4:00 PM</p>
+            </article>
+            <article class="visit-card">
+              <h3>Call the shop</h3>
+              <p>Questions about today’s selection or a last-minute order?</p>
+              <p style="margin-top: 14px"><a href="tel:+17188924968">(718) 892-4968</a></p>
+            </article>
+            <article class="visit-card">
+              <h3>Delivery</h3>
+              <p>Fresh pastries and cakes can come right to your door.</p>
+              <p style="margin-top: 14px"><a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a></p>
+            </article>
+          </div>
+          <article class="visit-card map-card" aria-label="Map showing Morris Park Bake Shop location">
+            <iframe title="Map to Morris Park Bake Shop" src="https://www.google.com/maps?q=Morris+Park+Bake+Shop,+1007+Morris+Park+Ave,+Bronx,+NY+10462&output=embed" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<script>
-document.getElementById('cakeForm').addEventListener('submit',function(e){e.preventDefault();alert('Thank you! We will contact you shortly to confirm your custom cake request.')});
-const filters=document.querySelectorAll('.gallery-filters button');const items=document.querySelectorAll('.gallery-item');
-filters.forEach(f=>f.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));f.classList.add('active');const filter=f.dataset.filter;items.forEach(i=>{if(filter==='all'||i.dataset.category===filter)i.style.display='block';else i.style.display='none'})}))
-</script>
+  <footer>
+    <strong>Morris Park Bake Shop</strong>
+    <p>Handcrafted in the Bronx since 1980 · 1007 Morris Park Ave, Bronx, NY 10462 · (718) 892-4968</p>
+  </footer>
+
+  <div class="mobile-fab" aria-label="Quick actions">
+    <a class="mobile-fab-order" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">🛵 Order Delivery</a>
+    <a class="mobile-fab-call" href="tel:+17188924968">📞 Call Now</a>
+  </div>
+
+  <div class="modal" id="cakeModal" hidden role="dialog" aria-modal="true" aria-labelledby="cake-modal-title" aria-describedby="cake-modal-description">
+    <div class="modal-panel" tabindex="-1">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close custom cake request">×</button>
+      <div class="modal-header">
+        <p class="eyebrow">Start a custom order</p>
+        <h2 id="cake-modal-title">Tell us about your celebration.</h2>
+        <p id="cake-modal-description">Share the essentials below and the Morris Park Bake Shop team will follow up to confirm your custom cake request.</p>
+      </div>
+      <form class="cake-form" id="cakeForm">
+        <div class="form-field"><label for="eventType">Event type</label><select id="eventType" name="eventType" required><option value="">Select an event</option><option>Wedding</option><option>Birthday</option><option>Anniversary</option><option>Baby shower</option><option>Other celebration</option></select></div>
+        <div class="form-field"><label for="cakeSize">Cake size</label><select id="cakeSize" name="cakeSize" required><option value="">Select a size</option><option>6 inch (serves 8–10)</option><option>7 inch (serves 12–14)</option><option>8 inch (serves 16–18)</option><option>10 inch (serves 25–30)</option></select></div>
+        <div class="form-field"><label for="flavor">Flavor choice</label><select id="flavor" name="flavor" required><option value="">Choose a flavor</option><option>Vanilla</option><option>Chocolate</option><option>Red Velvet</option><option>Tiramisu</option><option>Cannoli</option><option>Strawberry Shortcake</option><option>Carrot</option><option>Oreo</option><option>Funfetti</option></select></div>
+        <div class="form-field"><label for="deliveryDate">Pickup or delivery date</label><input id="deliveryDate" name="deliveryDate" type="date" required></div>
+        <div class="form-field full"><label for="notes">Special requests</label><textarea id="notes" name="notes" rows="4" placeholder="Allergies, colors, inscription, or design notes"></textarea></div>
+        <div class="form-field full"><label for="inspiration">Inspiration photo (optional)</label><input class="file-input" id="inspiration" name="inspiration" type="file" accept="image/*"></div>
+        <p class="form-message" role="status">Thank you. Your request is ready for the team to review. Please call the bakery if you need an immediate confirmation.</p>
+        <button class="modal-submit" type="submit">Submit Request</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="menuModal" hidden role="dialog" aria-modal="true" aria-labelledby="menu-modal-title" aria-describedby="menu-modal-description">
+    <div class="modal-panel" tabindex="-1">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close menu">×</button>
+      <div class="modal-header">
+        <p class="eyebrow">Morris Park Bake Shop</p>
+        <h2 id="menu-modal-title">Our Menu</h2>
+        <p id="menu-modal-description">A selection of bakery favorites. For today’s availability, call the shop.</p>
+      </div>
+      <div class="modal-menu-grid">
+        <article class="menu-card">
+          <h3>Cookies &amp; sweet bites</h3>
+          <div class="menu-item"><strong>$4.00</strong><p>Large cookies: Chocolate Chip, Rainbow Sprinkles, M&amp;M’s, Jelly Sandwich, Linzer Tart, Black &amp; White</p></div>
+          <div class="menu-item"><strong>$3.00</strong><p>Donuts and buns</p></div>
+          <div class="menu-item"><strong>$3.50</strong><p>Muffins and cupcakes</p></div>
+          <div class="menu-item"><strong>$4.00</strong><p>Turnovers</p></div>
+          <div class="menu-item"><strong>$4.50</strong><p>Brownies</p></div>
+        </article>
+        <article class="menu-card">
+          <h3>Individual pastries &amp; tarts</h3>
+          <div class="menu-item"><strong>$8.50</strong><p>French Napoleon, Tiramisu, Chocolate Mousse, Lobster Tail, Large Cannoli, Eclair, Fruit Tart, French Custard</p></div>
+        </article>
+        <article class="menu-card">
+          <h3>Whole cakes</h3>
+          <div class="menu-item"><strong>$35.00 · 7 inch specialty</strong><p>Carrot, Strawberry Shortcake, Oreo, Funfetti, Mocha, Dulce de Leche, Red Velvet, Chocolate Mousse, Chocolate Fudge, Shadow, Black Forest, Strawberry Banana</p></div>
+          <div class="menu-item"><strong>$40.00 · 8 inch signature</strong><p>Italian, Tres Leche, Cannoli, Tiramisu, Fruit</p></div>
+        </article>
+        <article class="menu-card">
+          <h3>Cheesecakes &amp; pies</h3>
+          <div class="menu-item"><strong>$8.00</strong><p>Slice of Cheesecake</p></div>
+          <div class="menu-item"><strong>$15.00</strong><p>Apple Horn Pie</p></div>
+          <div class="menu-item"><strong>$25.00</strong><p>7 inch Plain or Marble Cheesecake</p></div>
+          <div class="menu-item"><strong>$30.00</strong><p>7 inch Strawberries, Chocolate Fudge, Funfetti, Oreo, Red Velvet, or Mixed Fresh Fruit Cheesecake</p></div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const body = document.body;
+      const menuToggle = document.querySelector('.menu-toggle');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileBackdrop = document.querySelector('.mobile-menu-backdrop');
+      const mobileClose = document.querySelector('.mobile-menu-close');
+      let lastModalTrigger = null;
+
+      const openMobileMenu = () => {
+        mobileMenu.classList.add('is-open');
+        mobileBackdrop.classList.add('is-open');
+        menuToggle.setAttribute('aria-expanded', 'true');
+        body.classList.add('modal-open');
+        mobileClose.focus();
+      };
+      const closeMobileMenu = () => {
+        mobileMenu.classList.remove('is-open');
+        mobileBackdrop.classList.remove('is-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        body.classList.remove('modal-open');
+        menuToggle.focus();
+      };
+      menuToggle.addEventListener('click', openMobileMenu);
+      mobileClose.addEventListener('click', closeMobileMenu);
+      mobileBackdrop.addEventListener('click', closeMobileMenu);
+      mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+
+      const openModal = (modal, trigger) => {
+        if (!modal) return;
+        lastModalTrigger = trigger;
+        modal.hidden = false;
+        body.classList.add('modal-open');
+        modal.querySelector('.modal-panel').focus();
+      };
+      const closeModal = modal => {
+        if (!modal || modal.hidden) return;
+        modal.hidden = true;
+        body.classList.remove('modal-open');
+        if (lastModalTrigger) lastModalTrigger.focus();
+      };
+      document.querySelectorAll('[data-open-modal]').forEach(trigger => {
+        trigger.addEventListener('click', event => {
+          event.preventDefault();
+          closeMobileMenu();
+          openModal(document.getElementById(trigger.dataset.openModal), trigger);
+        });
+      });
+      document.querySelectorAll('[data-close-modal]').forEach(button => button.addEventListener('click', () => closeModal(button.closest('.modal'))));
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('click', event => { if (event.target === modal) closeModal(modal); });
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') {
+          const activeModal = document.querySelector('.modal:not([hidden])');
+          if (activeModal) closeModal(activeModal);
+          else if (mobileMenu.classList.contains('is-open')) closeMobileMenu();
+        }
+      });
+
+      const cakeForm = document.getElementById('cakeForm');
+      cakeForm.addEventListener('submit', event => {
+        event.preventDefault();
+        cakeForm.querySelector('.form-message').classList.add('is-visible');
+        cakeForm.querySelector('.form-message').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      });
+    })();
+  </script>
 </body>
 </html>
