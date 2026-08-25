@@ -93,11 +93,11 @@
       top: 0;
       z-index: 50;
       min-height: 112px;
-      color: var(--white);
-      background:
-        linear-gradient(90deg, rgba(35, 12, 10, .82), rgba(68, 17, 14, .46) 52%, rgba(36, 9, 8, .72)),
-        url("./assets/photos/morris-park-storefront.jpg") center 35% / cover no-repeat;
-      box-shadow: 0 5px 20px rgba(34, 13, 10, .26);
+      color: var(--wine);
+      background: rgba(255, 253, 249, .97);
+      border-bottom: 1px solid rgba(88, 33, 31, .12);
+      box-shadow: 0 5px 20px rgba(34, 13, 10, .08);
+      backdrop-filter: blur(12px);
     }
     .header-bar {
       display: grid;
@@ -109,26 +109,37 @@
       margin: 0 auto;
     }
     .brand {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       min-width: 0;
-      color: var(--white);
+      min-height: 92px;
+      margin: 8px 0;
+      padding: 13px 20px 19px;
+      color: #ffe7bd;
       text-decoration: none;
+      background:
+        linear-gradient(105deg, rgba(64, 16, 18, .97), rgba(112, 30, 36, .88)),
+        url("./assets/photos/morris-park-awning.jpeg") center 18% / cover no-repeat;
+      border-radius: 4px 4px 21px 21px;
+      box-shadow: 0 9px 19px rgba(62, 18, 18, .18);
     }
     .brand-kicker {
       display: block;
       margin-bottom: 4px;
-      font-size: .64rem;
+      color: #f3d9a6;
+      font-size: .6rem;
       font-weight: 800;
-      letter-spacing: .17em;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      opacity: .88;
     }
     .brand-name {
       display: block;
       font-family: "Playfair Display", Georgia, serif;
-      font-size: clamp(1.15rem, 2vw, 1.55rem);
+      font-size: clamp(1rem, 1.7vw, 1.38rem);
       font-weight: 700;
       line-height: 1.05;
-      white-space: nowrap;
+      text-wrap: balance;
     }
     .desktop-nav {
       display: flex;
@@ -138,7 +149,7 @@
     }
     .desktop-nav a {
       padding: 8px 0;
-      color: var(--white);
+      color: var(--wine);
       font-size: .77rem;
       font-weight: 800;
       letter-spacing: .1em;
@@ -147,7 +158,7 @@
       border-bottom: 2px solid transparent;
       transition: border-color .2s ease, opacity .2s ease;
     }
-    .desktop-nav a:hover, .desktop-nav a:focus-visible { border-color: var(--butter); }
+    .desktop-nav a:hover, .desktop-nav a:focus-visible { border-color: var(--terracotta); }
     .header-actions {
       display: flex;
       align-items: center;
@@ -168,26 +179,27 @@
     }
     .header-call {
       padding: 0 13px;
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, .7);
-      background: rgba(255, 255, 255, .12);
+      color: var(--wine);
+      border: 1px solid rgba(92, 33, 31, .44);
+      background: var(--white);
     }
     .header-order {
       padding: 0 14px;
-      color: var(--wine-deep);
-      background: var(--butter);
-      border: 1px solid var(--butter);
+      color: var(--white);
+      background: var(--wine);
+      border: 1px solid var(--wine);
     }
     .header-call:hover, .header-order:hover { transform: translateY(-2px); }
+    .header-order:hover { background: var(--terracotta); border-color: var(--terracotta); }
     .menu-toggle {
       width: 42px;
       padding: 0;
-      color: var(--white);
-      border: 1px solid rgba(255, 255, 255, .7);
-      background: rgba(35, 12, 10, .35);
+      color: var(--wine);
+      border: 1px solid rgba(92, 33, 31, .44);
+      background: var(--white);
     }
     .menu-toggle svg { width: 19px; height: 19px; }
-    .menu-toggle:hover, .menu-toggle:focus-visible { background: rgba(255, 255, 255, .2); }
+    .menu-toggle:hover, .menu-toggle:focus-visible { color: var(--white); background: var(--wine); }
 
     .mobile-menu {
       position: fixed;
@@ -226,9 +238,9 @@
       border-bottom: 1px solid rgba(255,255,255,.2);
     }
     .mobile-menu .drawer-actions { display: grid; gap: 12px; margin-top: 38px; }
-    .drawer-actions a { padding: 13px 15px; border-radius: 10px; text-align: center; text-decoration: none; font-weight: 800; }
+    .drawer-actions a, .drawer-actions button { padding: 13px 15px; border-radius: 10px; text-align: center; text-decoration: none; font-family: inherit; font-size: 1rem; font-weight: 800; cursor: pointer; }
     .drawer-call { color: var(--cream); border: 1px solid rgba(255,255,255,.65); }
-    .drawer-order { color: var(--wine-deep); background: var(--butter); }
+    .drawer-order { color: var(--wine-deep); background: var(--butter); border: 1px solid var(--butter); }
     .mobile-menu-backdrop {
       position: fixed;
       z-index: 55;
@@ -448,6 +460,25 @@
     .menu-item + .menu-item { margin-top: 13px; padding-top: 13px; border-top: 1px solid var(--line); }
     .menu-item strong { display: block; color: var(--terracotta); font-size: .74rem; letter-spacing: .04em; }
     .menu-item p { margin: 3px 0 0; color: var(--muted); font-size: .86rem; }
+    .provider-list { display: grid; gap: 10px; margin-top: 26px; }
+    .provider-list a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 17px 18px;
+      color: var(--ink);
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      text-decoration: none;
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .provider-list a:hover, .provider-list a:focus-visible { border-color: var(--terracotta); box-shadow: 0 10px 22px rgba(70,25,20,.1); transform: translateY(-2px); }
+    .provider-list strong { display: block; color: var(--wine); font-size: 1rem; }
+    .provider-list small { display: block; margin-top: 2px; color: var(--muted); font-size: .78rem; }
+    .provider-list .provider-arrow { color: var(--terracotta); font-size: 1.25rem; font-weight: 800; }
+    .inline-order { padding: 0; color: var(--wine); background: transparent; border: 0; border-bottom: 1px solid currentColor; font-size: inherit; font-weight: 800; cursor: pointer; }
 
     .mobile-fab {
       position: fixed;
@@ -463,8 +494,8 @@
       box-shadow: 0 -7px 24px rgba(46,20,16,.12);
       backdrop-filter: blur(11px);
     }
-    .mobile-fab a { display: flex; align-items: center; justify-content: center; min-height: 45px; border-radius: 9px; font-size: .78rem; font-weight: 800; text-decoration: none; }
-    .mobile-fab-order { color: var(--white); background: var(--wine); }
+    .mobile-fab a, .mobile-fab button { display: flex; align-items: center; justify-content: center; min-height: 45px; border-radius: 9px; font-family: inherit; font-size: .78rem; font-weight: 800; text-decoration: none; cursor: pointer; }
+    .mobile-fab-order { color: var(--white); background: var(--wine); border: 1px solid var(--wine); }
     .mobile-fab-call { color: var(--wine); border: 1px solid var(--wine); }
 
     @media (max-width: 1120px) {
@@ -528,7 +559,7 @@
       </nav>
       <div class="header-actions">
         <a class="header-call" href="tel:+17188924968">Call (718) 892-4968</a>
-        <a class="header-order" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order Delivery</a>
+        <button class="header-order" type="button" data-open-modal="deliveryModal">Order Delivery</button>
         <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg>
         </button>
@@ -549,7 +580,7 @@
       <a href="#visit">Visit Us</a>
     </nav>
     <div class="drawer-actions">
-      <a class="drawer-order" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order Delivery</a>
+      <button class="drawer-order" type="button" data-open-modal="deliveryModal">Order Delivery</button>
       <a class="drawer-call" href="tel:+17188924968">Call (718) 892-4968</a>
     </div>
   </aside>
@@ -561,7 +592,7 @@
         <h1 id="hero-title">Handcrafted in the Bronx since 1980.</h1>
         <p>From celebration cakes and crisp cookie boxes to classic Italian pastries, our family bakery makes the neighborhood’s sweet traditions fresh every day.</p>
         <div class="hero-buttons">
-          <a class="button-primary" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order Delivery</a>
+          <button class="button-primary" type="button" data-open-modal="deliveryModal">Order Delivery</button>
           <a class="button-secondary" href="#custom-cakes" data-open-modal="cakeModal">Request Quote</a>
         </div>
         <p class="hero-note">Pickup and delivery options available. Call the shop for same-day questions.</p>
@@ -569,7 +600,7 @@
       <div class="hero-visuals" aria-label="Photos from Morris Park Bake Shop">
         <div class="hero-photo hero-photo-large"><img src="./assets/photos/cake-display.jpg" alt="Cakes and pastries inside the Morris Park Bake Shop display case"></div>
         <div class="hero-photo hero-photo-top"><img src="./assets/photos/pastry-case.jpg" alt="Fresh cookies and Italian pastries arranged in a bakery display"></div>
-        <div class="hero-photo hero-photo-bottom"><img src="./assets/photos/morris-park-storefront.jpg" alt="Morris Park Bake Shop storefront on Morris Park Avenue"></div>
+        <div class="hero-photo hero-photo-bottom"><img src="./assets/photos/morris-park-awning.jpeg" alt="The Morris Park Bake Shop awning on Morris Park Avenue"></div>
         <div class="hero-story"><span>Family bakery</span><strong>A legacy of sweetness.</strong></div>
       </div>
     </section>
@@ -647,7 +678,7 @@
             <article class="visit-card">
               <h3>Delivery</h3>
               <p>Fresh pastries and cakes can come right to your door.</p>
-              <p style="margin-top: 14px"><a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">Order on Uber Eats</a></p>
+              <p style="margin-top: 14px"><button class="inline-order" type="button" data-open-modal="deliveryModal">Choose a delivery service</button></p>
             </article>
           </div>
           <article class="visit-card map-card" aria-label="Map showing Morris Park Bake Shop location">
@@ -664,8 +695,25 @@
   </footer>
 
   <div class="mobile-fab" aria-label="Quick actions">
-    <a class="mobile-fab-order" href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer">🛵 Order Delivery</a>
+    <button class="mobile-fab-order" type="button" data-open-modal="deliveryModal">🛵 Order Delivery</button>
     <a class="mobile-fab-call" href="tel:+17188924968">📞 Call Now</a>
+  </div>
+
+  <div class="modal" id="deliveryModal" hidden role="dialog" aria-modal="true" aria-labelledby="delivery-modal-title" aria-describedby="delivery-modal-description">
+    <div class="modal-panel" tabindex="-1">
+      <button class="modal-close" type="button" data-close-modal aria-label="Close delivery options">×</button>
+      <div class="modal-header">
+        <p class="eyebrow">Order Morris Park Bake Shop</p>
+        <h2 id="delivery-modal-title">Choose your provider.</h2>
+        <p id="delivery-modal-description">Select your preferred service to order online for delivery or pickup.</p>
+      </div>
+      <div class="provider-list">
+        <a href="https://www.ubereats.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer"><span><strong>Uber Eats</strong><small>Order for delivery or pickup</small></span><span class="provider-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://www.grubhub.com/restaurant/morris-park-bake-shop-1007-morris-park-ave-the-bronx/13768472" target="_blank" rel="noopener noreferrer"><span><strong>Grubhub</strong><small>Order for delivery or pickup</small></span><span class="provider-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://www.seamless.com/menu/morris-park-bake-shop-1007-morris-park-ave-the-bronx/13768472" target="_blank" rel="noopener noreferrer"><span><strong>Seamless</strong><small>Order for delivery or pickup</small></span><span class="provider-arrow" aria-hidden="true">↗</span></a>
+        <a href="https://www.postmates.com/store/morris-park-bake-shop/hCVBPWTNW8GXFKfVfd-d1A" target="_blank" rel="noopener noreferrer"><span><strong>Postmates</strong><small>Order for delivery or pickup</small></span><span class="provider-arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
   </div>
 
   <div class="modal" id="cakeModal" hidden role="dialog" aria-modal="true" aria-labelledby="cake-modal-title" aria-describedby="cake-modal-description">
